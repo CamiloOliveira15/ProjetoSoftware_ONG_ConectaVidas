@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Coordenador | ONG Conecta Vidas (RF01)</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de Cores MiauApoio (Laranja + Stone) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#f97316', // orange-500
+                dark: '#ea580c',    // orange-600
+                light: '#fff7ed',   // orange-50
+              },
+              secondary: {
+                DEFAULT: '#292524', // stone-800
+                light: '#44403c',   // stone-700
+                muted: '#78716c',   // stone-500
+              },
+              light: '#f5f5f4',     // stone-100
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Fonte Inter (Padrão MiauApoio) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f5f5f4;
+            color: #292524;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-[#f5f5f4] flex flex-col justify-between">
+
+    <!-- Topo Institucional (Estilo Dashboard MiauApoio) -->
+    <header class="bg-white border-b border-stone-200 sticky top-0 z-30 shadow-xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="Login.html" class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 text-orange-500 flex items-center justify-center font-bold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <div>
+                        <span class="text-base font-extrabold text-stone-900 block leading-tight">ONG Conecta Vidas</span>
+                        <span class="text-[10px] text-stone-500 font-semibold">Painel do Coordenador • RF01</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Ações Rápidas de Navegação -->
+            <div class="flex items-center gap-2">
+                <a href="Escala.html" class="text-xs bg-orange-50 hover:bg-orange-100 text-orange-800 font-bold px-3 py-2 rounded-xl border border-orange-200 transition-all flex items-center gap-1.5">
+                    <span>Ver App do Voluntário</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                <a href="Login.html" class="text-xs bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold px-3 py-2 rounded-xl border border-stone-200 transition-all">
+                    Sair
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Central -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 w-full flex-1">
+        
+        <!-- Banner Informativo da Operação -->
+        <div class="bg-white rounded-2xl border border-stone-200 p-5 mb-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="bg-orange-100 text-orange-800 text-xs font-black px-2.5 py-0.5 rounded-full">RF01 — Atribuição Logística</span>
+                    <span class="text-xs text-stone-500 font-medium">Mutirão de Entregas • Zona Leste</span>
+                </div>
+                <h1 class="text-xl font-black text-stone-900">Atribuir Rota e Baixar Estoque</h1>
+                <p class="text-xs text-stone-600 mt-0.5">Vincule o voluntário ativo, a família assistida e os mantimentos disponíveis no estoque físico da sede.</p>
+            </div>
+
+            <!-- Indicadores Rápidos do Estoque Físico -->
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="bg-stone-50 border border-stone-200 px-3.5 py-2 rounded-xl text-center">
+                    <span class="block text-[10px] font-bold text-stone-500 uppercase">Cestas Básicas</span>
+                    <span class="text-base font-black text-stone-900">15 <span class="text-xs font-semibold text-emerald-700">disp.</span></span>
+                </div>
+                <div class="bg-stone-50 border border-stone-200 px-3.5 py-2 rounded-xl text-center">
+                    <span class="block text-[10px] font-bold text-stone-500 uppercase">Kits Higiene</span>
+                    <span class="text-base font-black text-stone-900">28 <span class="text-xs font-semibold text-emerald-700">disp.</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            
+            <!-- Coluna 1 e 2: Formulário de Registro de Entrega (RF01) -->
+            <div class="lg:col-span-2 bg-white rounded-2xl border border-stone-200 p-6 shadow-sm">
+                <div class="flex items-center justify-between pb-4 mb-5 border-b border-stone-100">
+                    <h2 class="text-base font-extrabold text-stone-900">Formulário de Despacho Operacional</h2>
+                    <span class="text-xs text-stone-500 font-medium">Campos obrigatórios (*)</span>
+                </div>
+
+                <form onsubmit="event.preventDefault(); simularDespacho();" class="space-y-4">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Seleção do Voluntário Ativo (Tabela Voluntarios) -->
+                        <div>
+                            <label class="block text-xs font-extrabold text-stone-800 uppercase tracking-wide mb-1.5" for="voluntario">
+                                1. Voluntário em Campo *
+                            </label>
+                            <select id="voluntario" class="w-full px-3.5 py-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-900 text-sm font-semibold focus:border-orange-500 focus:bg-white focus:outline-none">
+                                <option value="1" selected>João Voluntário (#101 - Ativo)</option>
+                                <option value="2">Mariana Santos (#102 - Ativo)</option>
+                                <option value="3">Carlos Eduardo (#103 - Em rota)</option>
+                            </select>
+                        </div>
+
+                        <!-- Seleção da Família Assistida (Tabela FamiliasAssistidas) -->
+                        <div>
+                            <label class="block text-xs font-extrabold text-stone-800 uppercase tracking-wide mb-1.5" for="familia">
+                                2. Família Assistida *
+                            </label>
+                            <select id="familia" class="w-full px-3.5 py-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-900 text-sm font-semibold focus:border-orange-500 focus:bg-white focus:outline-none">
+                                <option value="1" selected>Família Silva (Rua das Flores, 123)</option>
+                                <option value="2">Família Costa (Av. Esperança, 45)</option>
+                                <option value="3">Família Pereira (Travessa da Paz, 12)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Seleção dos Itens e Validação de Estoque (Tabela Estoque_Donativos) -->
+                    <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 space-y-3">
+                        <span class="block text-xs font-extrabold text-stone-800 uppercase tracking-wide">
+                            3. Mantimentos a Separar do Estoque Físico
+                        </span>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="bg-white p-3 rounded-xl border border-stone-200">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-xs font-bold text-stone-800">📦 Cestas Básicas</span>
+                                    <span class="text-[11px] text-stone-500 font-medium">Estoque: 15</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs text-stone-500 font-medium">Qtd:</span>
+                                    <input type="number" id="qtd-cestas" value="2" min="1" max="15" class="w-full px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-300 text-sm font-bold text-stone-900">
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-3 rounded-xl border border-stone-200">
+                                <div class="flex justify-between items-center mb-1">
+                                    <span class="text-xs font-bold text-stone-800">🧼 Kit Higiene Familiar</span>
+                                    <span class="text-[11px] text-stone-500 font-medium">Estoque: 28</span>
+                                </div>
+                                <div class="flex items-center gap-2 mt-1">
+                                    <span class="text-xs text-stone-500 font-medium">Qtd:</span>
+                                    <input type="number" id="qtd-higiene" value="1" min="1" max="28" class="w-full px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-300 text-sm font-bold text-stone-900">
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-[11px] text-stone-500 font-medium">
+                            * Regra RF01: O sistema bloqueia requisições se a quantidade separada for maior que o saldo em estoque.
+                        </p>
+                    </div>
+
+                    <!-- Botão de Confirmação (RF01) -->
+                    <button 
+                        type="submit" 
+                        class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold py-3.5 px-4 rounded-xl min-h-[48px] shadow-md shadow-orange-500/20 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer mt-4"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Confirmar e Atribuir Rota ao Voluntário (RF01)</span>
+                    </button>
+                </form>
+
+                <!-- Feedback Visual de Sucesso (Toast/Aviso) -->
+                <div id="sucesso-atribuicao" class="hidden mt-4 bg-emerald-50 border-2 border-emerald-500 text-emerald-950 p-4 rounded-xl flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-base">✔️</span>
+                        <div>
+                            <span class="text-xs font-bold block">Entrega Atribuída com Sucesso!</span>
+                            <span class="text-[11px] text-emerald-800">A Rota #1042 já está disponível na tela do voluntário João.</span>
+                        </div>
+                    </div>
+                    <a href="Escala.html" class="text-xs bg-emerald-600 text-white font-bold px-3 py-1.5 rounded-lg hover:bg-emerald-700 transition-all">
+                        Ver na Escala →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coluna 3: Histórico de Despachos Recentes -->
+            <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm space-y-4">
+                <div class="flex justify-between items-center pb-2 border-b border-stone-100">
+                    <h3 class="text-sm font-extrabold text-stone-900">Entregas do Mutirão</h3>
+                    <span class="text-[11px] bg-stone-100 text-stone-600 font-bold px-2 py-0.5 rounded">2 cadastradas</span>
+                </div>
+
+                <!-- Item 1: Rota Ativa (Família Silva) -->
+                <div class="bg-stone-50 border border-stone-200 p-3.5 rounded-xl">
+                    <div class="flex justify-between items-start mb-1">
+                        <span class="text-xs font-bold text-stone-900">Família Silva</span>
+                        <span class="bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded">Pendente</span>
+                    </div>
+                    <p class="text-[11px] text-stone-600">Voluntário: <strong>João Voluntário</strong></p>
+                    <p class="text-[11px] text-stone-600">Itens: 2 Cestas + 1 Higiene</p>
+                    <span class="block text-[10px] text-stone-400 mt-1">Despachado às 09:30 • Rota #1042</span>
+                </div>
+
+                <!-- Item 2: Rota Finalizada (Família Souza) -->
+                <div class="bg-stone-50/70 border border-stone-200 p-3.5 rounded-xl opacity-75">
+                    <div class="flex justify-between items-start mb-1">
+                        <span class="text-xs font-bold text-stone-700">Família Souza</span>
+                        <span class="bg-emerald-100 text-emerald-900 text-[10px] font-extrabold px-2 py-0.5 rounded">Concluído</span>
+                    </div>
+                    <p class="text-[11px] text-stone-500">Voluntário: <strong>Carlos Eduardo</strong></p>
+                    <p class="text-[11px] text-stone-500">Itens: 1 Cesta Básica</p>
+                    <span class="block text-[10px] text-emerald-800 font-semibold mt-1">Entregue às 09:15 ✔</span>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-white border-t border-stone-200 py-3 mt-6">
+        <div class="max-w-6xl mx-auto px-4 text-center text-xs text-stone-500 font-medium">
+            Sistema de Gestão Logística e Voluntariado • ONG Conecta Vidas • Projeto de Software (Cruzeiro do Sul)
+        </div>
+    </footer>
+
+    <script>
+        function simularDespacho() {
+            document.getElementById('sucesso-atribuicao').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
