@@ -28,3 +28,4 @@ _site/
 dist/
 build/
 .temp/
+scratch/

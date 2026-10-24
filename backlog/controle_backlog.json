@@ -1,581 +1,571 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "projeto": {
-    "nome": "Sistema de Gestão Logística e Voluntariado",
-    "organizacao_parceira": "Associação Comunitária Pão e Vida (ACPV) / ONG Conecta Vidas",
-    "territorio": "Zona Leste de São Paulo - SP",
+  "metadata": {
+    "projeto": "Sistema de Gestão Logística e Voluntariado — ONG Conecta Vidas",
+    "parceiro": "Associação Comunitária Pão e Vida (ACPV)",
+    "disciplina": "Projeto de Software — CST em Análise e Desenvolvimento de Sistemas",
     "instituicao": "Cruzeiro do Sul Virtual",
-    "curso": "CST em Análise e Desenvolvimento de Sistemas (ADS)",
-    "disciplina": "Projeto de Software",
-    "alinhamento_ods": {
-      "objetivo": "ODS 2 - Fome Zero e Agricultura Sustentável",
-      "meta_principal": "Meta 2.1 - Acesso universal a alimentos seguros, nutritivos e suficientes",
-      "indicadores_chave": [
-        {
-          "nome": "Tempo Médio de Triagem e Check-in por Família",
-          "baseline_manual": "92 segundos",
-          "meta_planejada": "Redução >= 50%",
-          "resultado_alcancado": "34 segundos (Redução real de 63%)",
-          "status": "Superado"
-        },
-        {
-          "nome": "Taxa de Desperdício de Alimentos Perecíveis",
-          "baseline_manual": "Perda recorrente por vencimento (ex: 15 kg de feijão)",
-          "meta_planejada": "Próximo a 0%",
-          "resultado_alcancado": "0% durante todo o período avaliado",
-          "status": "Alcançado"
-        }
-      ]
-    },
-    "metricas_consolidadas": {
-      "total_itens_backlog": 22,
-      "itens_concluidos": 19,
-      "itens_planejados_futuro": 3,
-      "pontos_historia_concluidos": 89,
-      "pontos_historia_futuros": 21,
-      "cobertura_testes_automatizados": "100%",
-      "uptime_producao": "100% (STATUS: UP)",
-      "latencia_media_producao": "0.039s"
-    }
+    "autor": "Camilo Caetano Pinheiro de Oliveira",
+    "versao": "2.0.0",
+    "padrao_governanca": "LegalSync Backlog-as-Code Framework",
+    "total_itens": 22,
+    "itens_concluidos": 19,
+    "pontos_totais": 117,
+    "pontos_entregues": 96
   },
-  "marcos_academicos": [
-    {
-      "codigo": "EP1",
-      "nome": "Experiência Prática I — Investigação e Diagnóstico Comunitário",
-      "foco": "Descoberta de produto, observação contextual, entrevistas, personas, ODS 2 e escopo preliminar",
-      "status": "Concluído",
-      "periodo": "2026-10-15 a 2026-10-22",
-      "carga_horaria": 20
-    },
-    {
-      "codigo": "EP2",
-      "nome": "Experiência Prática II — Desenho Lógico, Arquitetura e Modelagem",
-      "foco": "Arquitetura REST, modelagem relacional, requisitos funcionais e não-funcionais (OWASP, WCAG AA) e roteiro de validação",
-      "status": "Concluído",
-      "periodo": "2026-10-23 a 2026-11-05",
-      "carga_horaria": 35
-    },
-    {
-      "codigo": "EP3",
-      "nome": "Experiência Prática III — Codificação, Qualidade, CI e Validação em Campo",
-      "foco": "Versionamento Git, suíte Pytest 100%, pipeline CI GitHub Actions, 2 rodadas de validação com João Batista e refatorações",
-      "status": "Concluído",
-      "periodo": "2026-11-06 a 2026-11-26",
-      "carga_horaria": 60
-    },
-    {
-      "codigo": "EP4",
-      "nome": "Experiência Prática IV — Publicação Final, Monitoramento, Ética e Encerramento",
-      "foco": "Deploy GitHub Pages HTTPS, Health Check sintético 24/7, governança LGPD, medição de impacto ODS e termo de feedback",
-      "status": "Concluído",
-      "periodo": "2026-11-27 a 2026-12-10",
-      "carga_horaria": 25
-    },
-    {
-      "codigo": "EP5_FUTURO",
-      "nome": "Evolução Contínua — Arquitetura Local-First e Resiliência Offline",
-      "foco": "PWA, Service Workers, IndexedDB e sincronização bidirecional em segundo plano para áreas periféricas",
-      "status": "Planejado",
-      "periodo": "Pós-Graduação / Roadmap Contínuo",
-      "carga_horaria": 40
-    }
-  ],
-  "epicos": [
-    {
-      "id": "EPIC-01",
-      "marco": "EP1",
-      "titulo": "Descoberta Comunitária e Diagnóstico de Valor (ODS 2)",
-      "descricao": "Imersão empática no galpão da ACPV para mapeamento de gargalos analógicos no estoque e triagem."
-    },
-    {
-      "id": "EPIC-02",
-      "marco": "EP2",
-      "titulo": "Modelagem de Dados e Arquitetura de Software",
-      "descricao": "Estruturação das entidades relacionais, API RESTful e separação de preocupações (Separation of Concerns)."
-    },
-    {
-      "id": "EPIC-03",
-      "marco": "EP2",
-      "titulo": "Segurança Defensiva, Acessibilidade e Portabilidade",
-      "descricao": "Especificação de hashing robusto, diretrizes OWASP Top 10, WCAG 2.1 AA e performance em redes móveis."
-    },
-    {
-      "id": "EPIC-04",
-      "marco": "EP3",
-      "titulo": "Módulo Logístico da Sede e Despacho de Donativos (RF01)",
-      "descricao": "Controle de inventário físico com bloqueio determinístico de expedição sem estoque disponível."
-    },
-    {
-      "id": "EPIC-05",
-      "marco": "EP3",
-      "titulo": "Painel Móvel de Campo do Voluntário e Roteirização GPS (RF02 / RF04)",
-      "descricao": "Interface mobile-first com isolamento estrito de rotas por voluntário e integração com GPS nativo."
-    },
-    {
-      "id": "EPIC-06",
-      "marco": "EP3",
-      "titulo": "Baixa Física e Encerramento com Feedback Multimodal (RF03 / RNF04)",
-      "descricao": "Modal de confirmação defensiva, bloqueio de dupla baixa e transição de estado imutável com comprovante."
-    },
-    {
-      "id": "EPIC-07",
-      "marco": "EP3",
-      "titulo": "Engenharia de Qualidade, Testes Automatizados e CI",
-      "descricao": "Suíte Pytest com 100% de cobertura de código, checagens estáticas e automação via GitHub Actions."
-    },
-    {
-      "id": "EPIC-08",
-      "marco": "EP3",
-      "titulo": "Validação de Campo e Design Centrado no Usuário",
-      "descricao": "Execução de duas rodadas presenciais com o voluntário João Batista sob luz solar direta e rede móvel."
-    },
-    {
-      "id": "EPIC-09",
-      "marco": "EP4",
-      "titulo": "Publicação Final em Nuvem Pública e CD (Deploy Contínuo)",
-      "descricao": "Disponibilização pública com HTTPS nativo, CDN global e alta disponibilidade sem custos operacionais."
-    },
-    {
-      "id": "EPIC-10",
-      "marco": "EP4",
-      "titulo": "Monitoramento Sintético e Resiliência Operacional (Health Check)",
-      "descricao": "Pipeline autônomo com sonda HTTP periódica e alertas em caso de instabilidade ou lentidão."
-    },
-    {
-      "id": "EPIC-11",
-      "marco": "EP4",
-      "titulo": "Governança Ética, Minimização de Dados (LGPD) e Aceite Comunitário",
-      "descricao": "Garantia de auditoria por fluxo determinístico, respeito à dignidade humana e formalização do termo de entrega."
-    },
-    {
-      "id": "EPIC-12",
-      "marco": "EP5_FUTURO",
-      "titulo": "Arquitetura Local-First e Resiliência em Áreas Periféricas",
-      "descricao": "Capacitação offline nativa via PWA e IndexedDB para locais com sinal de celular instável."
-    }
-  ],
-  "itens_backlog": [
+  "items": [
     {
       "id": "BK-001",
+      "file": "backlog/BK-001-diagnostico-gargalo-operacional.md",
+      "title": "Diagnóstico do Gargalo Operacional e Registro",
+      "status": "completed",
       "epic_id": "EPIC-01",
+      "parent": "EP1",
       "marco": "EP1",
-      "codigo_requisito": "HU-EP1-01",
-      "titulo": "Diagnóstico do Gargalo Operacional e Registro Manual de Alimentos",
-      "tipo": "Descoberta",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como voluntário de triagem, quero registrar a entrada de doações de alimentos perecíveis com prazo de validade, para evitar desperdício de mantimentos essenciais no estoque.",
-      "criterios_aceite": [
-        "Mapeamento contextual in loco no galpão da ACPV",
-        "Identificação da dor de descarte involuntário (15kg de feijão)",
-        "Definição da regra FIFO (First-In, First-Out)"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "descoberta",
+        "requisitos",
+        "ods2",
+        "campo"
       ],
-      "artefatos_relacionados": ["Experiência Prática I.docx"],
-      "indicador_ods": "ODS 2.1 — Taxa de Desperdício Próxima a 0%"
+      "validation": {
+        "docs": [
+          "docs/evidencias/EVIDENCIAS_EXPERIENCIA_PRATICA_3.md",
+          "docs/termo_feedback/Termo_de_Feedback_da_Comunidade.pdf"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-002",
-      "epic_id": "EP1",
+      "file": "backlog/BK-002-mapeamento-triagem-checkin.md",
+      "title": "Mapeamento da Triagem e Check-in Rápido de Famílias",
+      "status": "completed",
+      "epic_id": "EPIC-01",
+      "parent": "EP1",
       "marco": "EP1",
-      "codigo_requisito": "HU-EP1-02",
-      "titulo": "Mapeamento da Triagem e Check-in Rápido de Famílias Beneficiárias",
-      "tipo": "Descoberta",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como coordenadora da distribuição, quero consultar rapidamente o cadastro das 300 famílias, para eliminar filas extenuantes na porta da associação.",
-      "criterios_aceite": [
-        "Entrevista semiestruturada com Maria da Conceição",
-        "Identificação de gargalo de 92s com fichas manuais de papel",
-        "Meta de redução de tempo em pelo menos 50%"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "processos",
+        "triagem",
+        "ux",
+        "ods2"
       ],
-      "artefatos_relacionados": ["Experiência Prática I.docx"],
-      "indicador_ods": "ODS 2.1 — Dignidade e Tempo de Atendimento"
+      "validation": {
+        "docs": [
+          "docs/evidencias/EVIDENCIAS_EXPERIENCIA_PRATICA_3.md"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-003",
+      "file": "backlog/BK-003-definicao-limite-escopo-mvp.md",
+      "title": "Definição do Limite de Escopo do MVP (Zero Over-Engineering)",
+      "status": "completed",
       "epic_id": "EPIC-01",
+      "parent": "EP1",
       "marco": "EP1",
-      "codigo_requisito": "HU-EP1-03",
-      "titulo": "Definição do Limite de Escopo do MVP (Zero Over-Engineering)",
-      "tipo": "Arquitetura",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 3,
-      "user_story": "Como arquiteto técnico, quero delimitar o que não fará parte do MVP, para garantir viabilidade de entrega individual dentro do prazo acadêmico.",
-      "criterios_aceite": [
-        "Exclusão explícita de leitor de código de barras/XML",
-        "Exclusão de tesouraria e conciliação bancária",
-        "Exclusão de aplicativo nativo pesado para lojas App Store/Google Play"
+      "priority": "must-have",
+      "points": 3,
+      "tags": [
+        "arquitetura",
+        "escopo",
+        "zero-overengineering"
       ],
-      "artefatos_relacionados": ["Experiência Prática I.docx", "README.md"],
-      "indicador_ods": "Sustentabilidade Operacional"
+      "validation": {
+        "docs": [
+          "README.md"
+        ],
+        "tests": [
+          "tests/test_interface_acessibilidade.py"
+        ]
+      }
     },
     {
       "id": "BK-004",
+      "file": "backlog/BK-004-modelagem-dados-relacional.md",
+      "title": "Modelagem de Dados Relacional e Normalização 3FN",
+      "status": "completed",
       "epic_id": "EPIC-02",
+      "parent": "EP2",
       "marco": "EP2",
-      "codigo_requisito": "MOD-01",
-      "titulo": "Modelagem de Dados Relacional e Normalização das Entidades",
-      "tipo": "Modelagem",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como engenheiro de software, quero estruturar entidades normalizadas com chaves primárias e estrangeiras, para garantir integridade referencial.",
-      "criterios_aceite": [
-        "Entidades modeladas: Voluntarios, Estoque_Donativos, Entregas, FamiliasAssistidas",
-        "Relacionamentos 1:N com integridade de dados",
-        "Restrições de não-negatividade de saldo"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "modelagem",
+        "database",
+        "3fn",
+        "integridade"
       ],
-      "artefatos_relacionados": ["Experiência Prática II.docx", "tests/test_regras_negocio.py"],
-      "indicador_ods": "Rastreabilidade de Mantimentos"
+      "validation": {
+        "tests": [
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-005",
-      "epic_id": "EPIC-03",
+      "file": "backlog/BK-005-especificacao-autenticacao-segura.md",
+      "title": "Especificação de Autenticação Segura com Hash e Perfis",
+      "status": "completed",
+      "epic_id": "EPIC-02",
+      "parent": "EP2",
       "marco": "EP2",
-      "codigo_requisito": "RNF01",
-      "titulo": "Especificação de Autenticação Segura com Hashing Robusto",
-      "tipo": "Segurança",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 3,
-      "user_story": "Como administrador do sistema, quero autenticação protegida por senhas em hash irreversível, para evitar vazamento de credenciais.",
-      "criterios_aceite": [
-        "Proibição explícita de senhas em texto limpo, MD5 ou SHA-1",
-        "Adoção de hash robusto (padrão bcrypt)",
-        "Isolamento entre perfil Coordenador e Voluntário"
+      "priority": "must-have",
+      "points": 3,
+      "tags": [
+        "seguranca",
+        "autenticacao",
+        "acessibilidade",
+        "rnf01"
       ],
-      "artefatos_relacionados": ["Login.html", "tests/test_interface_acessibilidade.py"],
-      "indicador_ods": "Segurança da Informação"
+      "validation": {
+        "tests": [
+          "tests/test_interface_acessibilidade.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-006",
-      "epic_id": "EPIC-03",
+      "file": "backlog/BK-006-blindagem-vulnerabilidades-owasp.md",
+      "title": "Blindagem Contra Vulnerabilidades do OWASP Top 10",
+      "status": "completed",
+      "epic_id": "EPIC-02",
+      "parent": "EP2",
       "marco": "EP2",
-      "codigo_requisito": "RNF02",
-      "titulo": "Blindagem Contra Vulnerabilidades do OWASP Top 10",
-      "tipo": "Segurança",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como desenvolvedor, quero aplicar controles defensivos contra SQLi, XSS e Broken Access Control, para proteger a integridade do sistema.",
-      "criterios_aceite": [
-        "Parametrização estrita de dados contra SQL Injection (OWASP A03)",
-        "Sanitização e escape no DOM contra XSS (OWASP A03)",
-        "Filtragem por ID no backend contra IDOR/Broken Access Control (OWASP A01)"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "seguranca",
+        "owasp",
+        "defensivo",
+        "isolamento"
       ],
-      "artefatos_relacionados": ["tests/test_regras_negocio.py"],
-      "indicador_ods": "Confiabilidade do Sistema"
+      "validation": {
+        "tests": [
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-007",
-      "epic_id": "EPIC-03",
+      "file": "backlog/BK-007-meta-desempenho-redes-moveis.md",
+      "title": "Meta Objetiva de Desempenho e Portabilidade em Redes Móveis",
+      "status": "completed",
+      "epic_id": "EPIC-02",
+      "parent": "EP2",
       "marco": "EP2",
-      "codigo_requisito": "RNF03",
-      "titulo": "Meta Objetiva de Desempenho e Portabilidade em Redes Móveis (Fast 3G)",
-      "tipo": "Performance",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 3,
-      "user_story": "Como voluntário na rua, quero carregamento rápido da tela de escalas em até 3.0s em redes móveis, para não atrasar as entregas.",
-      "criterios_aceite": [
-        "Cenário de teste calibrado em Fast 3G (1.5 Mbps / 50ms latência)",
-        "Mediana das requisições <= 3.000 ms",
-        "Resultado alcançado no deploy: tempo < 1.2s (40ms no edge regional)"
+      "priority": "must-have",
+      "points": 3,
+      "tags": [
+        "performance",
+        "mobile",
+        "rnf03",
+        "latencia"
       ],
-      "artefatos_relacionados": ["Escala.html", "Evidencia_Deploy_Producao.html"],
-      "indicador_ods": "Agilidade Logística"
+      "validation": {
+        "docs": [
+          ".github/workflows/monitoramento.yml"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-008",
-      "epic_id": "EPIC-03",
+      "file": "backlog/BK-008-acessibilidade-universal-wcag.md",
+      "title": "Acessibilidade Universal para Operação em Trânsito (WCAG 2.1 AA)",
+      "status": "completed",
+      "epic_id": "EPIC-02",
+      "parent": "EP2",
       "marco": "EP2",
-      "codigo_requisito": "RNF04",
-      "titulo": "Acessibilidade Universal para Operação em Trânsito (WCAG 2.1 AA)",
-      "tipo": "Acessibilidade",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como voluntário operando sob sol e segurando caixas, quero botões grandes e alto contraste, para operar o aplicativo com apenas uma mão.",
-      "criterios_aceite": [
-        "Áreas de toque mínimas absolutas de 44x44px (min-h-[46px] nos botões)",
-        "Relação de contraste mínima de 4.5:1 (alcançado > 7:1 na paleta Conecta Vidas)",
-        "Independência total de cor com ícones visuais e texto afirmativo"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "acessibilidade",
+        "wcag",
+        "rnf04",
+        "ux"
       ],
-      "artefatos_relacionados": ["tests/test_interface_acessibilidade.py", "Escala.html", "Confirmacao.html"],
-      "indicador_ods": "ODS 2.1 — Inclusão e Acessibilidade"
+      "validation": {
+        "tests": [
+          "tests/test_interface_acessibilidade.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-009",
-      "epic_id": "EPIC-04",
+      "file": "backlog/BK-009-painel-coordenador-validacao-estoque.md",
+      "title": "Painel do Coordenador com Validação Reativa de Saldo de Estoque",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "RF01",
-      "titulo": "Painel do Coordenador com Validação Reativa de Saldo de Estoque",
-      "tipo": "Funcionalidade",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 8,
-      "user_story": "Como coordenador da ONG, quero vincular voluntário, família e doações bloqueando o despacho se faltar estoque, para nunca prometer donativos inexistentes.",
-      "criterios_aceite": [
-        "Interface administrativa funcional em Coordenador.html",
-        "Bloqueio reativo de despacho se quantidade <= 0 ou excede saldo disponível",
-        "Dedução automática do estoque após confirmação",
-        "Teste automatizado test_rf01_bloqueio_quando_estoque_insuficiente aprovado"
+      "priority": "must-have",
+      "points": 8,
+      "tags": [
+        "frontend",
+        "backend",
+        "estoque",
+        "rf01"
       ],
-      "artefatos_relacionados": ["Coordenador.html", "tests/test_regras_negocio.py"],
-      "indicador_ods": "ODS 2.1 — Gestão Sem Desperdício"
+      "validation": {
+        "tests": [
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-010",
-      "epic_id": "EPIC-05",
+      "file": "backlog/BK-010-painel-mobile-escalas-isolamento.md",
+      "title": "Painel Mobile de Escalas com Isolamento Estrito por Voluntário",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "RF02",
-      "titulo": "Painel Mobile de Escalas com Isolamento Estrito de Dados",
-      "tipo": "Funcionalidade",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como voluntário autenticado, quero visualizar exclusivamente as entregas atribuídas a mim no dia, para manter foco e preservar a privacidade das famílias.",
-      "criterios_aceite": [
-        "Interface responsiva em Escala.html",
-        "Filtragem estrita por id_voluntario sem expor dados de outras rotas",
-        "Teste automatizado test_rf02_isolamento_de_escala_do_voluntario aprovado"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "frontend",
+        "mobile",
+        "escala",
+        "rf02"
       ],
-      "artefatos_relacionados": ["Escala.html", "tests/test_regras_negocio.py"],
-      "indicador_ods": "Privacidade LGPD e Foco"
+      "validation": {
+        "tests": [
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-011",
-      "epic_id": "EPIC-05",
+      "file": "backlog/BK-011-despacho-dinamico-rota-gps.md",
+      "title": "Despacho Dinâmico de Rota para Aplicativos GPS Externos",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "RF04",
-      "titulo": "Despacho Dinâmico de Rota para Aplicativos GPS Nativos",
-      "tipo": "Funcionalidade",
-      "prioridade": "Should Have",
-      "status": "Concluído",
-      "pontos_historia": 3,
-      "user_story": "Como voluntário em campo, quero clicar no botão de mapa para abrir o endereço direto no Google Maps com navegação por voz, sem custos de API.",
-      "criterios_aceite": [
-        "Uso do protocolo URL Scheme nativo (google.com/maps/search/?api=1)",
-        "Abertura em nova guia com target='_blank'",
-        "Teste automatizado test_rf04_link_direto_para_gps aprovado"
+      "priority": "should-have",
+      "points": 3,
+      "tags": [
+        "gps",
+        "maps",
+        "integracao",
+        "rf04"
       ],
-      "artefatos_relacionados": ["Escala.html", "tests/test_interface_acessibilidade.py"],
-      "indicador_ods": "Eficiência de Deslocamento"
+      "validation": {
+        "tests": [
+          "tests/test_interface_acessibilidade.py",
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-012",
-      "epic_id": "EPIC-06",
+      "file": "backlog/BK-012-modal-defensivo-confirmacao-baixa.md",
+      "title": "Modal Defensivo de Confirmação de Baixa com Prevenção de Toques",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "RF03",
-      "titulo": "Modal Defensivo de Confirmação de Baixa com Proteção Contra Duplicidade",
-      "tipo": "Funcionalidade",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como voluntário, quero confirmar a entrega com duas etapas e ter bloqueio de reenvio, para garantir que o donativo foi baixado uma única vez.",
-      "criterios_aceite": [
-        "Modal de confirmação com botões literais 'Voltar' e 'Confirmar Entrega'",
-        "Toast multissensorial de feedback imediato",
-        "Transição irreversível para status Concluído",
-        "Teste automatizado test_rf03_bloqueio_de_conclusao_dupla aprovado"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "frontend",
+        "ux-defensiva",
+        "baixa",
+        "rf03"
       ],
-      "artefatos_relacionados": ["Confirmacao.html", "EscalaConcluida.html", "tests/test_regras_negocio.py"],
-      "indicador_ods": "Idempotência e Segurança Contábil"
+      "validation": {
+        "tests": [
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-013",
-      "epic_id": "EPIC-07",
+      "file": "backlog/BK-013-suite-testes-automatizados-pytest.md",
+      "title": "Suíte Completa de Testes Automatizados com Pytest",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "QA-CI-01",
-      "titulo": "Suíte Completa de Testes Automatizados com Pytest e Cobertura 100%",
-      "tipo": "Qualidade",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 8,
-      "user_story": "Como líder de qualidade, quero testes cobrindo 100% das regras de negócio e acessibilidade, para impedir qualquer regressão funcional.",
-      "criterios_aceite": [
-        "12 testes automatizados cobrindo RF01, RF02, RF03, RF04, RNF04",
-        "Execução rápida (<= 0.5s localmente)",
-        "100% de cobertura medida via coverage"
+      "priority": "must-have",
+      "points": 8,
+      "tags": [
+        "qualidade",
+        "testes",
+        "pytest",
+        "coverage"
       ],
-      "artefatos_relacionados": ["tests/test_regras_negocio.py", "tests/test_interface_acessibilidade.py"],
-      "indicador_ods": "Qualidade de Software"
+      "validation": {
+        "tests": [
+          "tests/test_interface_acessibilidade.py",
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-014",
-      "epic_id": "EPIC-07",
+      "file": "backlog/BK-014-automacao-pipeline-ci-actions.md",
+      "title": "Automação do Pipeline de Integração Contínua (GitHub Actions)",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "QA-CI-02",
-      "titulo": "Automação do Pipeline de Integração Contínua (CI) no GitHub Actions",
-      "tipo": "DevOps",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como desenvolvedor, quero que todo push e PR dispare testes automatizados em contêiner Ubuntu, garantindo que código com falha não entre na main.",
-      "criterios_aceite": [
-        "Workflow configurado em .github/workflows/ci.yml",
-        "Execução com pytest e checagem de HTMLs",
-        "Badge oficial de status verde ativo no README.md"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "ci",
+        "github-actions",
+        "qualidade",
+        "automacao"
       ],
-      "artefatos_relacionados": [".github/workflows/ci.yml", "README.md"],
-      "indicador_ods": "Governança Técnica"
+      "validation": {
+        "docs": [
+          ".github/workflows/ci.yml"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-015",
-      "epic_id": "EPIC-08",
+      "file": "backlog/BK-015-primeira-rodada-validacao-campo.md",
+      "title": "Primeira Rodada de Validação em Campo e Mapeamento de Atritos",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "UX-VAL-01",
-      "titulo": "Primeira Rodada de Validação em Campo e Mapeamento de Dores",
-      "tipo": "Validação",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como projetista UX, quero testar o protótipo com João Batista sob sol forte e rede 3G, para identificar atritos reais de uso.",
-      "criterios_aceite": [
-        "Aplicação do protocolo Think-Aloud com 3 tarefas operacionais",
-        "Identificação de lentidão de 92s na leitura sob sol intenso",
-        "Identificação de insegurança por ausência de tela permanente pós-baixa"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "validacao",
+        "campo",
+        "usabilidade",
+        "feedback"
       ],
-      "artefatos_relacionados": ["docs/evidencias/EVIDENCIAS_EXPERIENCIA_PRATICA_3.md"],
-      "indicador_ods": "Validação Empírica"
+      "validation": {
+        "docs": [
+          "docs/evidencias/EVIDENCIAS_EXPERIENCIA_PRATICA_3.md"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-016",
-      "epic_id": "EPIC-08",
+      "file": "backlog/BK-016-refatoracao-chips-alto-contraste.md",
+      "title": "Refatoração de Interface para Chips de Alto Contraste",
+      "status": "completed",
+      "epic_id": "EPIC-03",
+      "parent": "EP3",
       "marco": "EP3",
-      "codigo_requisito": "UX-REF-01",
-      "titulo": "Refatoração de Interface para Chips de Alto Contraste e Tela Pós-Baixa Permanente",
-      "tipo": "Refatoração",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 8,
-      "user_story": "Como voluntário de campo, quero chips visuais com ícones e uma tela permanente pós-entrega, para conferir rapidamente os itens e ter certeza da baixa.",
-      "criterios_aceite": [
-        "Criação dos chips visuais em Tailwind CSS (bg-orange-50 border-orange-200)",
-        "Contraste ampliado para taxa superior a 7:1",
-        "Criação de EscalaConcluida.html com badge 'Concluído às 09:44 ✔'",
-        "Segunda rodada: redução do tempo de 92s para 34s (ganho de 63%) e nota 5/5"
+      "priority": "must-have",
+      "points": 8,
+      "tags": [
+        "frontend",
+        "refatoracao",
+        "alto-contraste",
+        "ux"
       ],
-      "artefatos_relacionados": ["Escala.html", "EscalaConcluida.html", "docs/evidencias/EVIDENCIAS_EXPERIENCIA_PRATICA_3.md"],
-      "indicador_ods": "ODS 2.1 — Eficiência Comprovada"
+      "validation": {
+        "docs": [
+          "docs/evidencias/EVIDENCIAS_EXPERIENCIA_PRATICA_3.md"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-017",
-      "epic_id": "EPIC-09",
+      "file": "backlog/BK-017-deploy-seguro-github-pages.md",
+      "title": "Deploy Contínuo em Nuvem Pública via GitHub Pages com Isolamento",
+      "status": "completed",
+      "epic_id": "EPIC-04",
+      "parent": "EP4",
       "marco": "EP4",
-      "codigo_requisito": "DEP-01",
-      "titulo": "Deploy Contínuo em Nuvem Pública via GitHub Pages com HTTPS Nativo",
-      "tipo": "Deploy",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como usuário do sistema, quero acessar a aplicação diretamente pela internet em URL segura (HTTPS) sem necessidade de instalação.",
-      "criterios_aceite": [
-        "Publicação ativa em camilooliveira15.github.io/ProjetoSoftware_ONG_ConectaVidas",
-        "CDN Fastly Edge com nó regional em São Paulo",
-        "Tempo de resposta medido em produção ~0.039s (< 1.5s do RNF03)"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "deploy",
+        "seguranca",
+        "github-pages",
+        "nuvem"
       ],
-      "artefatos_relacionados": ["index.html", "README.md", "docs/assets/Evidencia_Deploy_Producao.png"],
-      "indicador_ods": "Disponibilidade e Acesso Universal"
+      "validation": {
+        "docs": [
+          ".github/workflows/deploy.yml"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-018",
-      "epic_id": "EPIC-10",
+      "file": "backlog/BK-018-monitoramento-sintetico-health-check.md",
+      "title": "Monitoramento Sintético Contínuo e Health Check Automatizado",
+      "status": "completed",
+      "epic_id": "EPIC-04",
+      "parent": "EP4",
       "marco": "EP4",
-      "codigo_requisito": "MON-01",
-      "titulo": "Monitoramento Sintético Contínuo e Health Check Automatizado 24/7",
-      "tipo": "Monitoramento",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como equipe de sustentação, quero verificação periódica de uptime a cada 6 horas com alerta de falhas, para garantir disponibilidade contínua.",
-      "criterios_aceite": [
-        "Workflow .github/workflows/monitoramento.yml com cron '0 */6 * * *'",
-        "Checagem de código HTTP 200, latência < 1.5s e marcador no DOM",
-        "Transição imediata para STATUS=DOWN e alerta por e-mail em falhas"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "monitoramento",
+        "health-check",
+        "uptime",
+        "sre"
       ],
-      "artefatos_relacionados": [".github/workflows/monitoramento.yml", "docs/assets/Evidencia_Monitoramento_Uptime.png"],
-      "indicador_ods": "Resiliência Operacional"
+      "validation": {
+        "docs": [
+          ".github/workflows/monitoramento.yml"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-019",
-      "epic_id": "EPIC-11",
+      "file": "backlog/BK-019-governanca-etica-minimizacao-lgpd.md",
+      "title": "Governança Ética, Minimização de Dados (LGPD) e Termo de Aceite",
+      "status": "completed",
+      "epic_id": "EPIC-04",
+      "parent": "EP4",
       "marco": "EP4",
-      "codigo_requisito": "GOV-01",
-      "titulo": "Governança Ética, Minimização de Dados (LGPD) e Termo de Feedback",
-      "tipo": "Ética",
-      "prioridade": "Must Have",
-      "status": "Concluído",
-      "pontos_historia": 5,
-      "user_story": "Como coordenadora da comunidade e cidadão vulnerável, quero que meus dados pessoais sejam protegidos sem fotos invasivas, preservando minha dignidade.",
-      "criterios_aceite": [
-        "Aplicação dos princípios de Privacy by Design e Minimização de Dados (LGPD Art. 6º)",
-        "Eliminação de coleta de dados biométricos ou fotos de beneficiários",
-        "Formalização do Termo de Feedback assinado pela coordenação da ACPV",
-        "Sanitização completa de identificadores pessoais sensíveis do repositório"
+      "priority": "must-have",
+      "points": 5,
+      "tags": [
+        "etica",
+        "lgpd",
+        "privacidade",
+        "ods2",
+        "termo"
       ],
-      "artefatos_relacionados": ["docs/termo_feedback/Termo_de_Feedback_da_Comunidade.html", "docs/termo_feedback/Termo_de_Feedback_da_Comunidade.pdf"],
-      "indicador_ods": "Dignidade Humana e Ética"
+      "validation": {
+        "docs": [
+          "docs/termo_feedback/Termo_de_Feedback_da_Comunidade.pdf",
+          "docs/termo_feedback/Termo_de_Feedback_da_Comunidade.html"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-020",
-      "epic_id": "EPIC-12",
+      "file": "backlog/BK-020-transformacao-pwa-service-worker.md",
+      "title": "Implementação de Arquitetura Local-First com Service Worker e PWA",
+      "status": "pending",
+      "epic_id": "EPIC-05",
+      "parent": "EP5_FUTURO",
       "marco": "EP5_FUTURO",
-      "codigo_requisito": "PWA-01",
-      "titulo": "Implementação de Arquitetura Local-First com Progressive Web App (PWA)",
-      "tipo": "Evolução",
-      "prioridade": "Should Have",
-      "status": "Planejado",
-      "pontos_historia": 8,
-      "user_story": "Como voluntário em comunidade periférica sem sinal de celular, quero continuar consultando escalas e baixando entregas offline, para não travar a rota.",
-      "criterios_aceite": [
-        "Adição de Web App Manifest (manifest.json) para instalação no Android/iOS",
-        "Registro de Service Worker para cache local de assets estáticos",
-        "Persistência transacional em IndexedDB local"
+      "priority": "should-have",
+      "points": 8,
+      "tags": [
+        "pwa",
+        "service-worker",
+        "local-first",
+        "offline"
       ],
-      "artefatos_relacionados": ["backlog/ep05_futuras_melhorias_e_pwa.md"],
-      "indicador_ods": "Resiliência Desconectada"
+      "validation": {
+        "tests": [
+          "tests/test_interface_acessibilidade.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-021",
-      "epic_id": "EPIC-12",
+      "file": "backlog/BK-021-persistencia-local-indexeddb.md",
+      "title": "Sincronização em Segundo Plano (Background Sync) e IndexedDB",
+      "status": "pending",
+      "epic_id": "EPIC-05",
+      "parent": "EP5_FUTURO",
       "marco": "EP5_FUTURO",
-      "codigo_requisito": "SYNC-01",
-      "titulo": "Sincronização em Segundo Plano (Background Sync) com Reconciliação",
-      "tipo": "Evolução",
-      "prioridade": "Should Have",
-      "status": "Planejado",
-      "pontos_historia": 8,
-      "user_story": "Como coordenador da ONG, quero que baixas offline sincronizem automaticamente com o inventário central ao retornar o sinal, evitando conflitos.",
-      "criterios_aceite": [
-        "Uso da Background Synchronization API",
-        "Fila transacional com carimbo de data/hora (UTC/ISO-8601)",
-        "Algoritmo determinístico de reconciliação com tolerância a falhas"
+      "priority": "should-have",
+      "points": 8,
+      "tags": [
+        "indexeddb",
+        "background-sync",
+        "persistencia",
+        "local-first"
       ],
-      "artefatos_relacionados": ["backlog/ep05_futuras_melhorias_e_pwa.md"],
-      "indicador_ods": "Consistência de Estoque"
+      "validation": {
+        "tests": [
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     },
     {
       "id": "BK-022",
-      "epic_id": "EPIC-12",
+      "file": "backlog/BK-022-otimizacao-algoritmica-multi-paradas.md",
+      "title": "Otimização Algorítmica Multi-Paradas para Rotas de Distribuição",
+      "status": "pending",
+      "epic_id": "EPIC-05",
+      "parent": "EP5_FUTURO",
       "marco": "EP5_FUTURO",
-      "codigo_requisito": "ROTA-01",
-      "titulo": "Otimização Algorítmica Multi-Paradas para Roteiros de Entrega",
-      "tipo": "Evolução",
-      "prioridade": "Could Have",
-      "status": "Planejado",
-      "pontos_historia": 5,
-      "user_story": "Como motorista voluntário, quero que o sistema sugira a ordem ótima de visitação das famílias, reduzindo tempo e consumo de combustível.",
-      "criterios_aceite": [
-        "Cálculo de rota ótima multi-waypoint via motor livre (OSRM ou Maps API)",
-        "Redução adicional estimada de 20% no tempo total de percurso",
-        "Preservação da privacidade dos endereços"
+      "priority": "could-have",
+      "points": 5,
+      "tags": [
+        "algoritmos",
+        "roteirizacao",
+        "tsp",
+        "logistica"
       ],
-      "artefatos_relacionados": ["backlog/ep05_futuras_melhorias_e_pwa.md"],
-      "indicador_ods": "Eficiência e Sustentabilidade Ambiental"
+      "validation": {
+        "tests": [
+          "tests/test_regras_negocio.py"
+        ],
+        "tooling": [
+          "scripts/backlog.py"
+        ]
+      }
     }
   ]
 }
