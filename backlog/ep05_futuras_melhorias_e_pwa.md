@@ -26,7 +26,7 @@ Para assegurar **resiliência operacional absoluta**, este backlog estrutura a m
 * **História de Usuário:**
   > *Como voluntário operando em áreas periféricas sem sinal de internet, quero que o aplicativo permaneça totalmente operante no navegador do meu celular mesmo offline, para que eu possa consultar os endereços e donativos da rota sem interrupções.*
 * **Critérios de Aceitação:**
-  - [ ] Criação do arquivo `manifest.json` com ícones, tema (paleta MiauApoio Laranja/Stone) e modo `display: standalone`.
+  - [ ] Criação do arquivo `manifest.json` com ícones, tema (paleta Conecta Vidas Laranja/Stone) e modo `display: standalone`.
   - [ ] Implementação de Service Worker (`sw.js`) com estratégia de cache *Stale-While-Revalidate* para assets estáticos (HTML, Tailwind CSS, Fontes).
   - [ ] Capacidade de instalação do ícone do aplicativo na tela inicial do Android e iOS sem passar por lojas proprietárias.
 

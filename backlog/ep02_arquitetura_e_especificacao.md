@@ -63,7 +63,7 @@
 * **RNF03 (Performance em Redes Móveis):** Renderização completa do fluxo central de escalas em tempo inferior a 3.0s sob perfil simulado de conexão móvel Fast 3G (1.5 Mbps / 50ms latência).
 * **RNF04 (Acessibilidade WCAG 2.1 AA):**
   * Alvos de toque com área mínima absoluta de 44x44px (`min-h-[46px]`);
-  * Relação de contraste mínima de 4.5:1 (alcançado > 7:1 na paleta MiauApoio);
+  * Relação de contraste mínima de 4.5:1 (alcançado > 7:1 na paleta Conecta Vidas);
   * Independência total de cor: alertas combinando cor + ícone semântico SVG + mensagem explicativa.
 
 ---

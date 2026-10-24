@@ -301,7 +301,7 @@
       "user_story": "Como voluntário operando sob sol e segurando caixas, quero botões grandes e alto contraste, para operar o aplicativo com apenas uma mão.",
       "criterios_aceite": [
         "Áreas de toque mínimas absolutas de 44x44px (min-h-[46px] nos botões)",
-        "Relação de contraste mínima de 4.5:1 (alcançado > 7:1 na paleta MiauApoio)",
+        "Relação de contraste mínima de 4.5:1 (alcançado > 7:1 na paleta Conecta Vidas)",
         "Independência total de cor com ícones visuais e texto afirmativo"
       ],
       "artefatos_relacionados": ["tests/test_interface_acessibilidade.py", "Escala.html", "Confirmacao.html"],

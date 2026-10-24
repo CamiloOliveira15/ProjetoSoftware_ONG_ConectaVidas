@@ -22,3 +22,9 @@ Desktop.ini
 # IDEs
 .vscode/
 .idea/
+
+# Build e Deploy Local
+_site/
+dist/
+build/
+.temp/

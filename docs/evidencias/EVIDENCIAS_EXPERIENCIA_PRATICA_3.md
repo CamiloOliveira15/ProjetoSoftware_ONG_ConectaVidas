@@ -45,7 +45,7 @@ Implementação do fluxo logístico de campo para a ONG Conecta Vidas (RF01 a RF
 
 ## 🔍 Checklist de Auto-Revisão Técnica
 - [x] Ausência de senhas em texto limpo (segurança OWASP).
-- [x] Aderência rigorosa à paleta MiauApoio (Laranja e Stone).
+- [x] Aderência rigorosa à paleta oficial Conecta Vidas (Laranja e Stone).
 - [x] Zero over-engineering (arquitetura leve sem dependências desnecessárias).
 ```
 
@@ -152,7 +152,7 @@ Conforme exigido pelo desafio, o MVP foi submetido a **duas rodadas de validaç�
 
 Com base direta nos feedbacks coletados na Rodada 1, foram implementadas melhorias substanciais no código:
 
-1. **Ajuste 1 — Reformulação Visual para Alto Contraste (Padrão MiauApoio):**
+1. **Ajuste 1 — Reformulação Visual para Alto Contraste (Padrão Conecta Vidas):**
    * Adoção dos tokens Stone (`#292524`) e Laranja (`#f97316`) com relação de contraste superior a 7:1.
    * Criação de **chips visuais destacados** para cada item (`📦 2 Cestas Básicas` e `🧼 1 Kit Higiene`), permitindo conferência visual instantânea sem esforço sob a luz do sol.
 2. **Ajuste 2 — Criação da Tela de Escala Concluída (`EscalaConcluida.html`):**

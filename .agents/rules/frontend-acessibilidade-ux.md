@@ -1,12 +1,12 @@
 ---
 trigger: glob
 globs: "*.html, tests/test_interface_acessibilidade.py, docs/assets/*"
-description: "Contratos de acessibilidade WCAG 2.1 AA, design system MiauApoio, áreas de toque e feedback de usuário em campo."
+description: "Contratos de acessibilidade WCAG 2.1 AA, design system Conecta Vidas, áreas de toque e feedback de usuário em campo."
 ---
 
 # Frontend, Acessibilidade e Experiência do Usuário (UX)
 
-## 1. Design System e Identidade Visual (MiauApoio $\rightarrow$ Conecta Vidas)
+## 1. Design System e Identidade Visual (Conecta Vidas)
 - **Paleta de Cores Oficial:**
   - Primária (Ação / Destaque): Laranja Tailwind (`bg-orange-500`, `hover:bg-orange-600`, `#f97316`).
   - Neutra (Fundo e Tipografia): Stone (`bg-stone-50`, `text-stone-800`, `text-stone-900`, `#292524`).
