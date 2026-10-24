@@ -2,7 +2,7 @@
 
 > **Disciplina:** Projeto de Software | **CST em Análise e Desenvolvimento de Sistemas**  
 > **Instituição:** Cruzeiro do Sul Virtual  
-> **Estudante:** Camilo Caetano Pinheiro de Oliveira | **RA:** 45928321  
+> **Estudante:** Camilo Caetano Pinheiro de Oliveira  
 > **Projeto:** Sistema de Gestão Logística e Voluntariado — ONG Conecta Vidas  
 
 ---

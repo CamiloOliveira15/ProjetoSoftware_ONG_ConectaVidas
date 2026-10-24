@@ -8,20 +8,20 @@
 [![ODS 2](https://img.shields.io/badge/ODS-2%20Fome%20Zero-orange)](https://brasil.un.org/pt-br/sdgs/2)
 
 > **Disciplina:** Projeto de Software — Ciclo Completo de Desenvolvimento (Práticas I, II, III e IV)  
-> **Estudante:** Camilo Caetano Pinheiro de Oliveira | **RA:** 45928321  
+> **Estudante:** Camilo Caetano Pinheiro de Oliveira  
 > **Instituição:** Cruzeiro do Sul Virtual — CST em Análise e Desenvolvimento de Sistemas (ADS)  
 > **Parceiro Comunitário:** Associação Comunitária Pão e Vida (ACPV) / ONG Conecta Vidas  
-> **Representante Comunitário:** João Batista (Voluntário Operacional de Campo) e Sra. Maria da Conceição (Coordenação)  
+> **Representantes Comunitários:** Sra. Maria da Conceição Santos (Coordenação Geral) e João Batista (Voluntário Operacional de Campo)  
 > **Aplicação em Nuvem (Deploy Ativo):** [camilooliveira15.github.io/ProjetoSoftware_ONG_ConectaVidas](https://camilooliveira15.github.io/ProjetoSoftware_ONG_ConectaVidas/)  
 
 ---
 
 ## 🌐 1. Síntese Executiva do Projeto
 
-O projeto **Sistema de Gestão Logística e Voluntariado** foi concebido e implementado em estreita parceria com a **ONG Conecta Vidas** (originada da Associação Comunitária Pão e Vida - ACPV, na Zona Leste de São Paulo), organização sem fins lucrativos que atua no combate à fome de famílias em extrema vulnerabilidade socioeconômica, diretamente conectado à **Meta 2.1 do ODS 2 (Fome Zero e Agricultura Sustentável)**.
+O projeto **Sistema de Gestão Logística e Voluntariado** foi concebido e implementado em estreita cooperação com a **ONG Conecta Vidas** (originada da Associação Comunitária Pão e Vida - ACPV, na Zona Leste de São Paulo), organização social sem fins lucrativos que atua na linha de frente da segurança alimentar, alinhando a Engenharia de Software à **Meta 2.1 do ODS 2 (Fome Zero e Agricultura Sustentável)**.
 
 ### Diagnóstico do Problema (Experiência Prática 1)
-Antes da intervenção tecnológica, a ONG gerenciava doações e entregas manualmente por meio do "caderno azul" e fichas de papel de 300 famílias. Esse modelo arcaico gerava descompassos críticos entre o estoque físico na sede e as rotas de campo, lentidão no atendimento (gerando filas extenuantes na porta da instituição) e perda de alimentos perecíveis por falta de rastreabilidade de validade (modelo FIFO).
+Antes da intervenção tecnológica, a ONG gerenciava a arrecadação de supermercados e a entrega de donativos manualmente através do "caderno azul" e fichas de papel para cerca de 300 famílias. Esse modelo arcaico acarretava frequentes descompassos entre o estoque físico na sede e as rotas de campo, lentidão no atendimento (gerando filas extenuantes na porta da instituição) e perda de alimentos perecíveis por falta de rastreabilidade de validade (modelo FIFO).
 
 ### Solução Construída (MVP Final)
 Desenvolveu-se um *Minimum Viable Product* (MVP) focado na **última milha logística**:
@@ -36,27 +36,60 @@ O público central é formado pelos voluntários de campo, representados por **J
 
 ---
 
-## 🤝 2. Sinergia Curricular: Da Captação à Operação de Campo
+## 📁 2. Estrutura do Repositório
 
-Este projeto fecha o ciclo de engenharia de software iniciado no projeto anterior:
+O repositório foi organizado com rigor arquitetural, separando o aplicativo web em produção, as suítes de testes, o backlog completo do ciclo SDLC e os artefatos de documentação/evidências:
 
 ```
-[ PROJETO ANTERIOR: MiauApoio ]                [ PROJETO ATUAL: Conecta Vidas ]
-   (Desenvolvimento Front-End)                         (Projeto de Software)
-             │                                                   │
-  • Portal Institucional Público                      • Painel do Coordenador (RF01)
-  • Cadastro de Voluntários (AWS)                     • App Mobile do Voluntário em Campo
-  • Captação e Dashboard Administrativo               • Escala, Roteirização GPS e Baixa
-             │                                                   │
-             └───────────────> [ DESIGN SYSTEM ] <───────────────┘
-                               • Paleta Laranja (#f97316) & Stone (#292524)
-                               • Tipografia Inter e Alto Contraste (WCAG AA)
-                               • Filosofia Zero Over-Engineering
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml                             # Pipeline automatizado de Integração Contínua
+│   │   └── monitoramento.yml                  # Monitoramento sintético 24/7 (Health Check Uptime)
+│   └── pull_request_template.md               # Template oficial de Code Review e Auto-Revisão
+├── index.html                                 # Ponto de entrada do Deploy (GitHub Pages)
+├── Login.html                                 # [Tela 1] Autenticação e Seleção de Perfil (RNF01 / RNF04)
+├── Escala.html                                # [Tela 2] Escala de Campo com Chips Visuais e GPS (RF02 / RF04)
+├── Confirmacao.html                           # [Tela 3] Modal Defensivo de Confirmação de Baixa (RF03)
+├── Coordenador.html                           # [Tela 4] Painel da Sede com Validação de Estoque (RF01)
+├── EscalaConcluida.html                       # [Tela 5] Comprovante Permanente de Ciclo Fechado (RF03)
+├── EsqueciSenha.html                          # Fluxo acessível de recuperação de credenciais
+├── tests/
+│   ├── test_interface_acessibilidade.py       # Testes de integridade, WCAG 2.1 AA e rotas GPS
+│   └── test_regras_negocio.py                 # Testes unitários de estoque, isolamento e idempotência
+├── backlog/                                   # Matriz completa de Backlog e Governança SDLC
+│   ├── controle_backlog.json                  # Single Source of Truth estruturado em JSON
+│   ├── README.md                              # Guia de governança, MoSCoW e rastreabilidade
+│   ├── ep01_descoberta_e_requisitos.md        # Backlog da Experiência Prática I
+│   ├── ep02_arquitetura_e_especificacao.md    # Backlog da Experiência Prática II
+│   ├── ep03_implementacao_e_qualidade.md      # Backlog da Experiência Prática III
+│   ├── ep04_deploy_monitoramento_e_encerramento.md # Backlog da Experiência Prática IV
+│   └── ep05_futuras_melhorias_e_pwa.md        # Roadmap de evolução Local-First (PWA / Offline)
+└── docs/                                      # Evidências acadêmicas e documentação formal
+    ├── README.md                              # Índice oficial da documentação
+    ├── assets/                                # Capturas de tela e evidências visuais
+    ├── evidencias/                            # Relatórios técnicos (EVIDENCIAS_EXPERIENCIA_PRATICA_3.md)
+    └── termo_feedback/                        # Termo de entrega e aceite da comunidade (HTML, DOCX, PDF)
 ```
 
 ---
 
-## 🏗️ 3. Módulos e Histórias de Usuário Efetivamente Implementados
+## 📋 3. Matriz de Backlog e Ciclo de Vida (SDLC)
+
+O desenvolvimento foi estruturado em épicos e histórias de usuário perfeitamente integrados às quatro experiências práticas da disciplina:
+
+| Experiência Prática | Foco Metodológico | Backlog Detalhado | Status |
+| :--- | :--- | :---: | :---: |
+| **Prática I** | Investigação comunitária, ODS 2, entrevistas e escopo preliminar | [`backlog/ep01_descoberta_e_requisitos.md`](backlog/ep01_descoberta_e_requisitos.md) | 🟢 Concluído |
+| **Prática II** | Modelagem relacional, arquitetura REST, requisitos RF01-04 e RNF01-04 | [`backlog/ep02_arquitetura_e_especificacao.md`](backlog/ep02_arquitetura_e_especificacao.md) | 🟢 Concluído |
+| **Prática III** | Codificação defensiva, testes no Pytest, CI Actions e 2 rodadas de campo | [`backlog/ep03_implementacao_e_qualidade.md`](backlog/ep03_implementacao_e_qualidade.md) | 🟢 Concluído |
+| **Prática IV** | Deploy GitHub Pages HTTPS, Health Check 24/7, ética LGPD e termo de aceite | [`backlog/ep04_deploy_monitoramento_e_encerramento.md`](backlog/ep04_deploy_monitoramento_e_encerramento.md) | 🟢 Concluído |
+| **Roadmap Pós-MVP** | Arquitetura Local-First, PWA, Service Worker e persistência IndexedDB | [`backlog/ep05_futuras_melhorias_e_pwa.md`](backlog/ep05_futuras_melhorias_e_pwa.md) | 🟡 Planejado |
+
+Consulte o arquivo de controle estruturado: 👉 **[`backlog/controle_backlog.json`](backlog/controle_backlog.json)**.
+
+---
+
+## 🏗️ 4. Módulos e Histórias de Usuário Efetivamente Implementados
 
 | Módulo / História de Usuário | Descrição das Rotas e Regras de Negócio | Tecnologias Utilizadas |
 | :--- | :--- | :--- |
@@ -67,7 +100,7 @@ Este projeto fecha o ciclo de engenharia de software iniciado no projeto anterio
 
 ---
 
-## ⚖️ 4. Análise de Engenharia: O Planejado (Prática 2) vs. O Executado no MVP
+## ⚖️ 5. Análise de Engenharia: O Planejado (Prática 2) vs. O Executado no MVP
 
 A evolução entre o planejamento inicial e a entrega final reflete maturidade de engenharia de software e a decisão consciente por **Zero Over-Engineering**:
 
@@ -76,15 +109,15 @@ A evolução entre o planejamento inicial e a entrega final reflete maturidade d
 | **Persistência e Backend** | API RESTful em FastAPI + SQLAlchemy + PostgreSQL conteinerizado em Docker / PaaS gratuito. | Gestão de estado reativa no frontend estático + Suíte com 12 testes automatizados em Python/Pytest com 100% de cobertura. | Servidores e bancos gratuitos sofrem *cold start* (40-60s de hibernação), gerando falso diagnóstico de indisponibilidade. A suíte automatizada garantiu as mesmas invariantes de negócio sem risco de queda. |
 | **Integração GPS** | Google Maps JavaScript API embutida via SDK/Canvas na página web. | Protocolo universal de URL Scheme (`https://www.google.com/maps/search/?api=1`) com `target="_blank"`. | A API JS exigiria faturamento no Google Cloud com cartão de crédito e exporia chaves públicas. O protocolo nativo é gratuito e despacha direto para o app nativo do smartphone com navegação guiada por voz. |
 | **Autenticação** | Servidor de autenticação com emissão de tokens JWT e algoritmo bcrypt. | Autenticação cliente de alta fidelidade com campos protegidos, validação semântica e seletores de perfis de teste. | Evitou semanas de esforço em infraestrutura de refresh tokens, permitindo focar 100% do tempo na acessibilidade (WCAG AA), nos testes e na validação com a comunidade. |
-| **Front-End e Deploy** | Aplicação compilada em React.js 18 via Vite. | HTML5 semântico com Tailwind CSS CDN e Vanilla JavaScript, publicado no GitHub Pages com SSL/HTTPS. | Otimização radical de carregamento em redes 3G (tempo de resposta de 40ms, atendendo ao RNF03 com folga) e 99,9% de disponibilidade garantida sem custos. |
+| **Front-End e Deploy** | Aplicação compilada em React.js 18 via Vite. | HTML5 semântico com Tailwind CSS CDN e Vanilla JavaScript, publicado no GitHub Pages com SSL/HTTPS. | Otimização radical de carregamento em redes 3G (tempo de resposta de 39ms, atendendo ao RNF03 com folga) e 99,9% de disponibilidade garantida sem custos. |
 
 ---
 
-## 🧪 5. Engenharia da Qualidade: Testes Automatizados e CI
+## 🧪 6. Engenharia da Qualidade: Testes Automatizados e CI
 
 O MVP conta com suítes de testes automatizados com **100% de cobertura** executadas via Pytest e integradas à esteira de CI no GitHub Actions:
 
-### 5.1 Suítes de Testes (`tests/`)
+### 6.1 Suítes de Testes (`tests/`)
 * **`test_regras_negocio.py` (Testes Unitários de Regras de Negócio):**
   * `test_rf01_atribuicao_com_estoque_suficiente`: valida o abatimento correto do inventário físico.
   * `test_rf01_bloqueio_quando_estoque_insuficiente`: lança exceção e impede estoque negativo.
@@ -101,7 +134,7 @@ O MVP conta com suítes de testes automatizados com **100% de cobertura** execut
   * `test_rnf04_independencia_de_cor_alerta`: assegura que o feedback combina cor verde + texto + SVG.
   * `test_rf04_link_direto_para_gps`: assegura o atributo `target="_blank"` para navegação segura.
 
-### 5.2 Relatório Oficial de Cobertura
+### 6.2 Relatório Oficial de Cobertura
 ```text
 Name                                     Stmts   Miss  Cover   Missing
 ----------------------------------------------------------------------
@@ -113,7 +146,7 @@ TOTAL                                      130      0   100%
 
 ---
 
-## 👥 6. Validação em Campo com a Comunidade (Duas Rodadas)
+## 👥 7. Validação em Campo com a Comunidade (Duas Rodadas)
 
 O MVP foi submetido a duas rodadas de testes de usabilidade com o voluntário operacional **João Batista**:
 
@@ -127,7 +160,7 @@ O MVP foi submetido a duas rodadas de testes de usabilidade com o voluntário op
 
 ---
 
-## 🩺 7. Monitoramento Pós-Lançamento e Health Check Automatizado
+## 🩺 8. Monitoramento Pós-Lançamento e Health Check Automatizado
 
 Para garantir que a aplicação continue no ar e com alta integridade em produção, foi configurado um workflow de monitoramento sintético contínuo no GitHub Actions ([`.github/workflows/monitoramento.yml`](.github/workflows/monitoramento.yml)):
 
@@ -139,23 +172,25 @@ Para garantir que a aplicação continue no ar e com alta integridade em produç
 
 ---
 
-## 🚀 8. Como Executar e Navegar
+## 🚀 9. Como Executar e Testar Localmente
 
 ### Acesso Online Imediato (Produção na Nuvem)
 Acesse diretamente pelo navegador sem instalar nada:  
 👉 **[https://camilooliveira15.github.io/ProjetoSoftware_ONG_ConectaVidas/](https://camilooliveira15.github.io/ProjetoSoftware_ONG_ConectaVidas/)**
 
-### Execução Local e Testes Automatizados
+### Execução Local dos Testes Automatizados
 ```bash
 # 1. Clonar o repositório
 git clone https://github.com/CamiloOliveira15/ProjetoSoftware_ONG_ConectaVidas.git
 cd ProjetoSoftware_ONG_ConectaVidas
 
 # 2. Executar suíte completa de testes automatizados com relatório de cobertura
-python -m coverage run -m pytest -v tests/ ; python -m coverage report -m
+python -m pytest -v
 ```
 
-## 🛡️ 9. Responsabilidade Ética, Privacidade e Conformidade com a LGPD
+---
+
+## 🛡️ 10. Responsabilidade Ética, Privacidade e Conformidade com a LGPD
 
 O projeto fundamenta-se no pilar ético de **Transparência e Privacidade de Dados**, aplicando as diretrizes de *Privacy by Design* e *Minimização de Dados* (Art. 6º, III da LGPD - Lei nº 13.709/2018):
 
@@ -163,27 +198,28 @@ O projeto fundamenta-se no pilar ético de **Transparência e Privacidade de Dad
 - **Minimização de Payload:** A rota do voluntário (`Escala.html`) expõe exclusivamente endereço, nome do responsável familiar e quantitativo físico de donativos em chips visuais. Nenhum dado sensível (CPF, NIS, renda ou prontuário socioeconômico) transita pelo cliente ou DOM.
 - **Auditoria Baseada em Processo:** A comprovação da entrega (`RF03`) opera através de dupla confirmação em modal defensivo in-page e carimbo temporal UTC, garantindo rastreabilidade contábil e conciliação de estoque (`RF01`) sem vigilância invasiva.
 - **Autonomia e Sustentabilidade:** Adoção de rotas com URL scheme nativo gratuito do Google Maps e deploy no GitHub Pages, eliminando custos de infraestrutura e dependência de APIs de nuvem pagas.
+- **Termo de Feedback da Comunidade:** Aceite formal e assinado da solução entregue, disponível em [`docs/termo_feedback/Termo_de_Feedback_da_Comunidade.html`](docs/termo_feedback/Termo_de_Feedback_da_Comunidade.html) e [`docs/termo_feedback/Termo_de_Feedback_da_Comunidade.pdf`](docs/termo_feedback/Termo_de_Feedback_da_Comunidade.pdf).
 
 ---
 
-## 🖼️ 10. Galeria Oficial de Evidências
+## 🖼️ 11. Galeria Oficial de Evidências
 
 | Evidência de Produção (Deploy Ativo) | Evidência de Monitoramento (Health Check) |
 | :---: | :---: |
-| [![Deploy Produção](Evidencia_Deploy_Producao.png)](Evidencia_Deploy_Producao.png) | [![Monitoramento Uptime](Evidencia_Monitoramento_Uptime.png)](Evidencia_Monitoramento_Uptime.png) |
+| [![Deploy Produção](docs/assets/Evidencia_Deploy_Producao.png)](docs/assets/Evidencia_Deploy_Producao.png) | [![Monitoramento Uptime](docs/assets/Evidencia_Monitoramento_Uptime.png)](docs/assets/Evidencia_Monitoramento_Uptime.png) |
 
 | Evidência de Testes e 100% Coverage | Evidência do Pipeline de CI (Actions) |
 | :---: | :---: |
-| [![Testes](Evidencia_Testes_Automatizados.png)](Evidencia_Testes_Automatizados.png) | [![CI Pipeline](Evidencia_CI_Pipeline.png)](Evidencia_CI_Pipeline.png) |
+| [![Testes](docs/assets/Evidencia_Testes_Automatizados.png)](docs/assets/Evidencia_Testes_Automatizados.png) | [![CI Pipeline](docs/assets/Evidencia_CI_Pipeline.png)](docs/assets/Evidencia_CI_Pipeline.png) |
 
 | Tela 1: Login e Autenticação | Tela 2: Escala com Chips Visuais | Tela 3: Confirmação e Baixa |
 | :---: | :---: | :---: |
-| [![Tela 1](Tela1_Login.png)](Login.html) | [![Tela 2](Tela2_Escala.png)](Escala.html) | [![Tela 3](Tela3_Confirmacao.png)](Confirmacao.html) |
+| [![Tela 1](docs/assets/Tela1_Login.png)](Login.html) | [![Tela 2](docs/assets/Tela2_Escala.png)](Escala.html) | [![Tela 3](docs/assets/Tela3_Confirmacao.png)](Confirmacao.html) |
 
 | Tela 4: Painel do Coordenador (RF01) | Tela 5: Escala 100% Concluída (RF03) |
 | :---: | :---: |
-| [![Tela 4](Tela4_Coordenador.png)](Coordenador.html) | [![Tela 5](Tela5_EscalaConcluida.png)](EscalaConcluida.html) |
+| [![Tela 4](docs/assets/Tela4_Coordenador.png)](Coordenador.html) | [![Tela 5](docs/assets/Tela5_EscalaConcluida.png)](EscalaConcluida.html) |
 
 ---
 
-*Projeto desenvolvido com rigor técnico, acessibilidade e compromisso social por **Camilo Caetano Pinheiro de Oliveira** (RA: 45928321).*
+*Projeto desenvolvido com rigor técnico, acessibilidade e compromisso social por **Camilo Caetano Pinheiro de Oliveira**.*
