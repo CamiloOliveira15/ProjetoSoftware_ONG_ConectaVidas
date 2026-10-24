@@ -155,9 +155,18 @@ cd ProjetoSoftware_ONG_ConectaVidas
 python -m coverage run -m pytest -v tests/ ; python -m coverage report -m
 ```
 
+## 🛡️ 9. Responsabilidade Ética, Privacidade e Conformidade com a LGPD
+
+O projeto fundamenta-se no pilar ético de **Transparência e Privacidade de Dados**, aplicando as diretrizes de *Privacy by Design* e *Minimização de Dados* (Art. 6º, III da LGPD - Lei nº 13.709/2018):
+
+- **Proteção à Dignidade dos Beneficiários:** As famílias atendidas pela ACPV estão em vulnerabilidade social extrema. O sistema não exige fotos de entrega, assinaturas digitais ou biometria facial, evitando constrangimento e exposição desnecessária.
+- **Minimização de Payload:** A rota do voluntário (`Escala.html`) expõe exclusivamente endereço, nome do responsável familiar e quantitativo físico de donativos em chips visuais. Nenhum dado sensível (CPF, NIS, renda ou prontuário socioeconômico) transita pelo cliente ou DOM.
+- **Auditoria Baseada em Processo:** A comprovação da entrega (`RF03`) opera através de dupla confirmação em modal defensivo in-page e carimbo temporal UTC, garantindo rastreabilidade contábil e conciliação de estoque (`RF01`) sem vigilância invasiva.
+- **Autonomia e Sustentabilidade:** Adoção de rotas com URL scheme nativo gratuito do Google Maps e deploy no GitHub Pages, eliminando custos de infraestrutura e dependência de APIs de nuvem pagas.
+
 ---
 
-## 🖼️ 9. Galeria Oficial de Evidências
+## 🖼️ 10. Galeria Oficial de Evidências
 
 | Evidência de Produção (Deploy Ativo) | Evidência de Monitoramento (Health Check) |
 | :---: | :---: |
