@@ -36,7 +36,27 @@ O público central é formado pelos voluntários de campo, representados por **J
 
 ---
 
-## 📁 2. Estrutura do Repositório
+## 🤝 2. Sinergia Curricular: Da Captação (MiauApoio) à Operação de Campo (Conecta Vidas)
+
+Este projeto fecha o ciclo de engenharia de software e design de interação iniciado no projeto curricular anterior:
+
+```
+[ PROJETO ANTERIOR: MiauApoio ]                [ PROJETO ATUAL: Conecta Vidas ]
+   (Desenvolvimento Front-End)                         (Projeto de Software)
+             │                                                   │
+  • Portal Institucional Público                      • Painel do Coordenador (RF01)
+  • Cadastro de Voluntários (AWS)                     • App Mobile do Voluntário em Campo
+  • Captação e Dashboard Administrativo               • Escala, Roteirização GPS e Baixa
+             │                                                   │
+             └───────────────> [ DESIGN SYSTEM ] <───────────────┘
+                               • Paleta Laranja (#f97316) & Stone (#292524)
+                               • Tipografia Inter e Alto Contraste (WCAG AA)
+                               • Filosofia Zero Over-Engineering
+```
+
+---
+
+## 📁 3. Estrutura do Repositório
 
 O repositório foi organizado com rigor arquitetural, separando o aplicativo web em produção, as suítes de testes, o backlog completo do ciclo SDLC e os artefatos de documentação/evidências:
 
@@ -73,7 +93,7 @@ O repositório foi organizado com rigor arquitetural, separando o aplicativo web
 
 ---
 
-## 📋 3. Matriz de Backlog e Ciclo de Vida (SDLC)
+## 📋 4. Matriz de Backlog e Ciclo de Vida (SDLC)
 
 O desenvolvimento foi estruturado em épicos e histórias de usuário perfeitamente integrados às quatro experiências práticas da disciplina:
 
@@ -89,7 +109,7 @@ Consulte o arquivo de controle estruturado: 👉 **[`backlog/controle_backlog.js
 
 ---
 
-## 🏗️ 4. Módulos e Histórias de Usuário Efetivamente Implementados
+## 🏗️ 5. Módulos e Histórias de Usuário Efetivamente Implementados
 
 | Módulo / História de Usuário | Descrição das Rotas e Regras de Negócio | Tecnologias Utilizadas |
 | :--- | :--- | :--- |
@@ -100,7 +120,7 @@ Consulte o arquivo de controle estruturado: 👉 **[`backlog/controle_backlog.js
 
 ---
 
-## ⚖️ 5. Análise de Engenharia: O Planejado (Prática 2) vs. O Executado no MVP
+## ⚖️ 6. Análise de Engenharia: O Planejado (Prática 2) vs. O Executado no MVP
 
 A evolução entre o planejamento inicial e a entrega final reflete maturidade de engenharia de software e a decisão consciente por **Zero Over-Engineering**:
 
@@ -113,11 +133,11 @@ A evolução entre o planejamento inicial e a entrega final reflete maturidade d
 
 ---
 
-## 🧪 6. Engenharia da Qualidade: Testes Automatizados e CI
+## 🧪 7. Engenharia da Qualidade: Testes Automatizados e CI
 
 O MVP conta com suítes de testes automatizados com **100% de cobertura** executadas via Pytest e integradas à esteira de CI no GitHub Actions:
 
-### 6.1 Suítes de Testes (`tests/`)
+### 7.1 Suítes de Testes (`tests/`)
 * **`test_regras_negocio.py` (Testes Unitários de Regras de Negócio):**
   * `test_rf01_atribuicao_com_estoque_suficiente`: valida o abatimento correto do inventário físico.
   * `test_rf01_bloqueio_quando_estoque_insuficiente`: lança exceção e impede estoque negativo.
@@ -134,7 +154,7 @@ O MVP conta com suítes de testes automatizados com **100% de cobertura** execut
   * `test_rnf04_independencia_de_cor_alerta`: assegura que o feedback combina cor verde + texto + SVG.
   * `test_rf04_link_direto_para_gps`: assegura o atributo `target="_blank"` para navegação segura.
 
-### 6.2 Relatório Oficial de Cobertura
+### 7.2 Relatório Oficial de Cobertura
 ```text
 Name                                     Stmts   Miss  Cover   Missing
 ----------------------------------------------------------------------
@@ -146,7 +166,7 @@ TOTAL                                      130      0   100%
 
 ---
 
-## 👥 7. Validação em Campo com a Comunidade (Duas Rodadas)
+## 👥 8. Validação em Campo com a Comunidade (Duas Rodadas)
 
 O MVP foi submetido a duas rodadas de testes de usabilidade com o voluntário operacional **João Batista**:
 
@@ -160,7 +180,7 @@ O MVP foi submetido a duas rodadas de testes de usabilidade com o voluntário op
 
 ---
 
-## 🩺 8. Monitoramento Pós-Lançamento e Health Check Automatizado
+## 🩺 9. Monitoramento Pós-Lançamento e Health Check Automatizado
 
 Para garantir que a aplicação continue no ar e com alta integridade em produção, foi configurado um workflow de monitoramento sintético contínuo no GitHub Actions ([`.github/workflows/monitoramento.yml`](.github/workflows/monitoramento.yml)):
 
@@ -172,7 +192,7 @@ Para garantir que a aplicação continue no ar e com alta integridade em produç
 
 ---
 
-## 🚀 9. Como Executar e Testar Localmente
+## 🚀 10. Como Executar e Testar Localmente
 
 ### Acesso Online Imediato (Produção na Nuvem)
 Acesse diretamente pelo navegador sem instalar nada:  
@@ -190,7 +210,7 @@ python -m pytest -v
 
 ---
 
-## 🛡️ 10. Responsabilidade Ética, Privacidade e Conformidade com a LGPD
+## 🛡️ 11. Responsabilidade Ética, Privacidade e Conformidade com a LGPD
 
 O projeto fundamenta-se no pilar ético de **Transparência e Privacidade de Dados**, aplicando as diretrizes de *Privacy by Design* e *Minimização de Dados* (Art. 6º, III da LGPD - Lei nº 13.709/2018):
 
@@ -202,7 +222,7 @@ O projeto fundamenta-se no pilar ético de **Transparência e Privacidade de Dad
 
 ---
 
-## 🖼️ 11. Galeria Oficial de Evidências
+## 🖼️ 12. Galeria Oficial de Evidências
 
 | Evidência de Produção (Deploy Ativo) | Evidência de Monitoramento (Health Check) |
 | :---: | :---: |
