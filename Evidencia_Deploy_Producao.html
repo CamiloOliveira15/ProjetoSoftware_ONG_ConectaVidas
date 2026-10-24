@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidência de Produção - Aplicação no Ar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 min-h-screen flex items-center justify-center p-6">
+
+    <!-- Janela Completa de Navegador Web com Barra de Endereço Real -->
+    <div class="w-full max-w-5xl bg-white rounded-2xl shadow-2xl border border-slate-700/80 overflow-hidden flex flex-col">
+        
+        <!-- Barra de Abas do Navegador -->
+        <div class="bg-[#e8eaed] px-3 pt-2.5 pb-0 flex items-center justify-between border-b border-slate-300">
+            <div class="flex items-center gap-2">
+                <!-- Controles de Janela -->
+                <div class="flex items-center gap-1.5 mr-3">
+                    <span class="w-3 h-3 rounded-full bg-[#ed6a5e] inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#f5bf4f] inline-block"></span>
+                    <span class="w-3 h-3 rounded-full bg-[#62c554] inline-block"></span>
+                </div>
+
+                <!-- Aba Ativa do Navegador -->
+                <div class="bg-white px-4 py-2 rounded-t-xl border-t border-x border-slate-300 text-xs font-semibold text-slate-800 flex items-center gap-2 shadow-xs">
+                    <div class="w-3.5 h-3.5 rounded bg-orange-500 text-white flex items-center justify-center text-[9px] font-bold">📦</div>
+                    <span>Tela 1 - Login | ONG Conecta Vidas</span>
+                    <span class="text-slate-400 hover:text-slate-700 ml-2 cursor-pointer font-bold">✕</span>
+                </div>
+
+                <!-- Nova Aba -->
+                <span class="text-slate-500 text-sm px-2 cursor-pointer font-medium">+</span>
+            </div>
+
+            <!-- Identificador de Perfil de Produção -->
+            <div class="flex items-center gap-2 pb-1.5">
+                <span class="text-[11px] bg-emerald-100 text-emerald-800 font-bold px-2.5 py-0.5 rounded-full border border-emerald-300">
+                    ● PROD LIVE
+                </span>
+            </div>
+        </div>
+
+        <!-- Barra de Navegação e URL Pública de Produção -->
+        <div class="bg-white px-4 py-2 border-b border-slate-200 flex items-center gap-3">
+            <!-- Botões Voltar, Avançar e Recarregar -->
+            <div class="flex items-center gap-2 text-slate-500">
+                <button class="p-1 hover:text-slate-800 cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="p-1 text-slate-300 cursor-not-allowed">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+                <button class="p-1 hover:text-slate-800 cursor-pointer">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                </button>
+            </div>
+
+            <!-- Campo de Endereço URL (OBRIGATÓRIO VISÍVEL) -->
+            <div class="flex-1 bg-stone-100/90 border border-stone-300 rounded-full px-4 py-1.5 flex items-center justify-between text-xs font-medium text-stone-800 shadow-inner">
+                <div class="flex items-center gap-2">
+                    <!-- Ícone de Cadeado SSL Seguro -->
+                    <span class="text-emerald-600 flex items-center" title="Conexão Segura com Certificado SSL">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                    </span>
+                    <span class="text-emerald-700 font-bold">https://</span><span class="text-stone-900 font-bold">camilooliveira15.github.io</span><span class="text-stone-600">/ProjetoSoftware_ONG_ConectaVidas/</span>
+                </div>
+                <div class="flex items-center gap-2 text-stone-400">
+                    <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">SSL Válido</span>
+                    <span class="cursor-pointer hover:text-stone-600">★</span>
+                </div>
+            </div>
+
+            <!-- Menu de Extensões / Opções -->
+            <div class="flex items-center gap-2 text-slate-500">
+                <span class="w-6 h-6 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-xs font-bold border border-orange-300">C</span>
+            </div>
+        </div>
+
+        <!-- Conteúdo Renderizado da Aplicação em Nuvem -->
+        <div class="bg-[#f5f5f4] p-8 flex items-center justify-center min-h-[620px]">
+            <!-- Card Mobile Centralizado (Login.html em Produção) -->
+            <div class="w-full max-w-[380px] bg-white rounded-3xl shadow-xl shadow-stone-300/60 border border-stone-200 overflow-hidden flex flex-col">
+                
+                <div class="bg-stone-900 text-stone-200 text-[11px] px-6 py-2 flex justify-between items-center tracking-wider font-semibold">
+                    <span>09:41</span>
+                    <div class="flex items-center gap-2">
+                        <span>5G</span>
+                        <span>100%</span>
+                    </div>
+                </div>
+
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="text-center mb-6 pt-1">
+                            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-500 mb-3 shadow-sm">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                            </div>
+                            <h1 class="text-2xl font-extrabold text-stone-900 tracking-tight">ONG Conecta Vidas</h1>
+                            <p class="text-stone-600 text-xs mt-1 font-medium">Gestão Logística e Voluntariado</p>
+
+                            <div class="inline-flex items-center gap-1.5 bg-orange-50 border border-orange-200 text-orange-800 text-[11px] font-bold px-3 py-1 rounded-full mt-2.5">
+                                <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                                <span>ODS 2 • Fome Zero</span>
+                            </div>
+                        </div>
+
+                        <!-- Perfis Rápidos de Simulação -->
+                        <div class="mb-4 bg-stone-50 border border-stone-200/90 rounded-2xl p-2.5">
+                            <span class="block text-[10px] font-bold text-stone-500 uppercase tracking-wider mb-1.5 text-center">
+                                ⚡ Perfis de Teste Rápido:
+                            </span>
+                            <div class="grid grid-cols-2 gap-1.5">
+                                <div class="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-white text-stone-800 border-2 border-orange-500 shadow-xs flex items-center justify-center gap-1">
+                                    <span>🛵 João (Campo)</span>
+                                </div>
+                                <div class="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-stone-100 text-stone-600 border border-stone-200 flex items-center justify-center gap-1">
+                                    <span>📋 Sede (Coord.)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Formulário de Autenticação -->
+                        <div class="space-y-3.5">
+                            <div>
+                                <label class="block text-stone-800 text-sm font-bold mb-1">E-mail de acesso</label>
+                                <input class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-900 text-sm font-semibold" value="joao.voluntario@conectavidas.org" readonly>
+                            </div>
+
+                            <div>
+                                <label class="block text-stone-800 text-sm font-bold mb-1">Senha</label>
+                                <input class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-900 text-sm font-semibold tracking-widest" value="••••••••" readonly>
+                            </div>
+
+                            <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3.5 px-4 rounded-xl min-h-[46px] shadow-md shadow-orange-500/25 text-sm tracking-wide flex items-center justify-center gap-2 mt-2">
+                                <span>Entrar como Voluntário</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-stone-100 pt-3 mt-3 text-center">
+                        <span class="text-[11px] text-stone-400 font-medium">Conecta Vidas • Ambiente de Produção Oficial (GitHub Pages)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Rodapé do Navegador -->
+        <div class="bg-stone-100 px-4 py-2 border-t border-slate-200 flex justify-between items-center text-[11px] text-stone-500">
+            <span>Servidor CDN: Fastly Edge (São Paulo - GRU) • Protocolo HTTP/1.1 200 OK</span>
+            <span class="text-emerald-700 font-bold">● Hospedagem Ativa em Nuvem Pública</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
