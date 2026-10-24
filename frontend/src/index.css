@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #1c1917; /* stone-900 */
+    background-color: #f8fafc; /* slate-50 */
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.011em;
+  }
+
+  /* Alvos de toque acessíveis (WCAG 2.1 AA - padrão Conecta Vidas >= 46px) */
+  button, a[role="button"], input[type="submit"], input[type="button"] {
+    min-height: 46px;
+  }
+
+  /* Foco visível com contraste refinado */
+  :focus-visible {
+    outline: 2px solid #ea580c;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Botões com hierarquia visual precisa */
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-semibold text-sm px-5 py-2.5 rounded-xl bg-orange-600 text-white hover:bg-orange-700 active:bg-orange-800 transition-all duration-150 shadow-sm hover:shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-medium text-sm px-4 py-2.5 rounded-xl bg-white text-stone-700 hover:bg-stone-100 hover:text-stone-900 border border-stone-300 transition-all duration-150 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-500 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-success {
+    @apply inline-flex items-center justify-center font-semibold text-sm px-5 py-2.5 rounded-xl bg-emerald-700 text-white hover:bg-emerald-800 active:bg-emerald-900 transition-all duration-150 shadow-sm hover:shadow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-800 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Superfícies de Cards Institucionais */
+  .card-surface {
+    @apply bg-white rounded-2xl border border-stone-200/90 shadow-sm transition-shadow duration-200;
+  }
+
+  /* Chips de Alto Contraste */
+  .chip-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide border;
+  }
+}
+
+/* Animações suaves para modais e notificações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

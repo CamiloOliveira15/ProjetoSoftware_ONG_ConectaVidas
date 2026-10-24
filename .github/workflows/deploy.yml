@@ -25,24 +25,23 @@ jobs:
       - name: 📥 Checkout do Repositório
         uses: actions/checkout@v4
 
+      - name: ⚛️ Configurar Ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 🔨 Compilar Frontend React Oficial (Vite)
+        run: |
+          cd frontend
+          npm install
+          npm run build
+
       - name: 📦 Isolar Exclusivamente Artefatos de Produção Web
         run: |
           mkdir _site
-          # Copiar apenas os pontos de entrada e telas da aplicação web
-          cp index.html _site/
-          cp Login.html _site/
-          cp Escala.html _site/
-          cp Confirmacao.html _site/
-          cp Coordenador.html _site/
-          cp EscalaConcluida.html _site/
-          cp EsqueciSenha.html _site/
+          # Copiar a aplicação React compilada diretamente para a raiz do site
+          cp -r frontend/dist/* _site/
           
-          # Copiar imagens públicas caso referenciadas diretamente pelas páginas
-          if [ -d "docs/assets" ]; then
-            mkdir -p _site/docs/assets
-            cp docs/assets/*.png _site/docs/assets/ 2>/dev/null || true
-          fi
-
           # Garantir que ferramentas internas, agentes, scripts e testes não vazem
           test ! -d _site/.agents
           test ! -d _site/scripts

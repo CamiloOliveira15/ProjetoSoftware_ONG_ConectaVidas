@@ -1,4 +1,39 @@
-# Python
+# =============================================================================
+# .gitignore — Projeto de Software: ONG Conecta Vidas
+# Governança de isolamento estrito: desenvolvimento local vs. produção no GitHub
+# =============================================================================
+
+# 🤖 Framework de Agentes de IA e Instruções Locais
+.agents/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.system_generated/
+.gemini/
+.antigravity/
+
+# 📋 Gestão de Backlog e Documentação Local de Trabalho
+backlog/
+docs/
+scripts/
+
+# 📝 Rascunhos, Scripts de Apoio e Arquivos Temporários
+scratch/
+.temp/
+temp/
+tmp/
+*.tmp
+
+# 🔐 Variáveis de Ambiente e Segredos
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+!.env.example
+
+# 🐍 Python, Testes e Cobertura
 __pycache__/
 *.py[cod]
 *$py.class
@@ -6,26 +41,55 @@ __pycache__/
 .pytest_cache/
 *.log
 .coverage
+.coverage.*
 htmlcov/
+nosetests.xml
+coverage.xml
+*.cover
 
-# Ambientes virtuais
+# 📦 Node.js, Frontend e Bundles Compilados
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+build/
+_site/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 🗄️ Bancos de Dados Locais (SQLite)
+*.db
+*.sqlite
+*.sqlite3
+backend/*.db
+backend/conectavidas.db
+
+# 🐍 Ambientes Virtuais Python
 .venv/
 env/
 venv/
 ENV/
+env.bak/
+venv.bak/
 
-# Sistema operacional
+# 💻 Configurações de Sistema Operacional
 Thumbs.db
 Desktop.ini
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 
-# IDEs
+# 🛠️ Editores e IDEs
 .vscode/
 .idea/
-
-# Build e Deploy Local
-_site/
-dist/
-build/
-.temp/
-scratch/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
