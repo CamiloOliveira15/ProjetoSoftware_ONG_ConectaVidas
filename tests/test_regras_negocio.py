@@ -16,6 +16,11 @@ class EstoqueInsuficienteError(Exception):
     pass
 
 
+class QuantidadeInvalidaError(ValueError):
+    """Exceção levantada quando a quantidade solicitada for menor ou igual a zero."""
+    pass
+
+
 class TransicaoStatusInvalidaError(Exception):
     """Exceção levantada ao tentar alterar status de entrega já finalizada."""
     pass
@@ -29,6 +34,10 @@ class ItemEstoque:
         self.perecivel = perecivel
 
     def debitar(self, quantidade: int):
+        if not isinstance(quantidade, int) or quantidade <= 0:
+            raise QuantidadeInvalidaError(
+                f"A quantidade a debitar deve ser um número inteiro positivo. Recebido: {quantidade}"
+            )
         if quantidade > self.quantidade:
             raise EstoqueInsuficienteError(
                 f"Estoque insuficiente de '{self.descricao}'. Disponível: {self.quantidade}, Solicitado: {quantidade}"
@@ -117,6 +126,18 @@ def test_rf01_bloqueio_quando_estoque_insuficiente():
 
     assert "Estoque insuficiente" in str(exc_info.value)
     assert cestas.quantidade == 1  # Estoque não foi violado
+
+
+def test_rf01_bloqueio_quantidade_invalida_zero_ou_negativa():
+    """RF01 / Segurança: Impede atribuições com quantidades zero ou negativas (defesa contra falhas)."""
+    servico = ServicoLogistica()
+    cestas = ItemEstoque(id_item=1, descricao="Cestas Básicas", quantidade=10, perecivel=True)
+
+    with pytest.raises(QuantidadeInvalidaError):
+        servico.atribuir_entrega(1044, 101, 2, [(cestas, 0)])
+
+    with pytest.raises(QuantidadeInvalidaError):
+        servico.atribuir_entrega(1045, 101, 2, [(cestas, -3)])
 
 
 def test_rf02_isolamento_de_escala_do_voluntario():
