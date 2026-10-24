@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela 2 - Escala | ONG Conecta Vidas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de Cores MiauApoio (Laranja + Stone) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#f97316', // orange-500 (marca MiauApoio)
+                dark: '#ea580c',    // orange-600
+                light: '#fff7ed',   // orange-50
+              },
+              secondary: {
+                DEFAULT: '#292524', // stone-800
+                light: '#44403c',   // stone-700
+                muted: '#78716c',   // stone-500
+              },
+              light: '#f5f5f4',     // stone-100
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Fonte Inter (Padrão limpo e acessível da MiauApoio) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f5f5f4;
+            color: #292524;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen flex-col items-center justify-center p-3 sm:p-6 bg-[#f5f5f4]">
+
+    <!-- Moldura Mobile com Estilo de Card da MiauApoio -->
+    <div class="w-full max-w-[390px] bg-white rounded-3xl shadow-xl shadow-stone-300/50 border border-stone-200 overflow-hidden flex flex-col min-h-[660px]">
+        
+        <!-- Barra de Status Mobile -->
+        <div class="bg-stone-900 text-stone-200 text-[11px] px-6 py-2 flex justify-between items-center tracking-wider font-semibold">
+            <span>09:42</span>
+            <div class="flex items-center gap-2">
+                <span>5G</span>
+                <span>100%</span>
+            </div>
+        </div>
+
+        <!-- Cabeçalho Operacional com Paleta MiauApoio -->
+        <header class="bg-white border-b border-stone-200 px-5 py-4 flex justify-between items-center shadow-xs">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-orange-50 border border-orange-200 text-orange-500 flex items-center justify-center font-bold text-sm shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-base font-extrabold text-stone-900 leading-tight">Minha Escala</h1>
+                    <p class="text-xs text-stone-500 font-medium">Olá, João Voluntário</p>
+                </div>
+            </div>
+
+            <a href="Login.html" class="text-xs bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-700 px-3 py-1.5 rounded-lg border border-stone-200 font-semibold transition-all flex items-center gap-1 min-h-[36px]" title="Encerrar sessão">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+                <span>Sair</span>
+            </a>
+        </header>
+
+        <!-- Barra Informativa da Rota -->
+        <div class="bg-stone-50 border-b border-stone-200 px-5 py-2.5 flex justify-between items-center text-xs">
+            <span class="font-bold text-stone-700 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                Mutirão do Dia • Rota #1042
+            </span>
+            <span class="bg-orange-100/80 text-orange-800 text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border border-orange-200">
+                1 Pendente
+            </span>
+        </div>
+
+        <!-- Conteúdo Principal - Lista de Cards (RF02) -->
+        <main class="flex-1 p-4 overflow-y-auto space-y-4 bg-stone-50/50">
+
+            <!-- Card 1: Família Silva (Principal) -->
+            <div class="bg-white rounded-2xl shadow-sm border border-stone-200 p-4 transition-all">
+                
+                <!-- Cabeçalho do Card com Status (WCAG AA) -->
+                <div class="flex justify-between items-start mb-3">
+                    <div>
+                        <h2 class="text-lg font-extrabold text-stone-900">Família Silva</h2>
+                        <span class="text-xs text-stone-500 font-medium">4 pessoas assistidas</span>
+                    </div>
+
+                    <!-- Badge Pendente (Alto contraste no padrão MiauApoio) -->
+                    <span class="bg-amber-100 text-amber-900 border border-amber-300 text-xs font-bold px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-2xs">
+                        <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                        Pendente
+                    </span>
+                </div>
+
+                <!-- Lista Estruturada de Mantimentos -->
+                <div class="mb-3.5 bg-stone-50 p-3 rounded-xl border border-stone-200/70">
+                    <span class="block text-[11px] font-bold text-stone-500 uppercase tracking-wider mb-2">Itens a Entregar:</span>
+                    <ul class="text-sm font-semibold text-stone-800 space-y-1.5">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>2 Cestas Básicas</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            <span>1 Kit Higiene</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Bloco de Endereço em Destaque (RF04) -->
+                <div class="flex items-start gap-2.5 text-xs text-stone-800 mb-4 bg-orange-50/70 p-3 rounded-xl border border-orange-200/70">
+                    <div class="w-6 h-6 rounded-lg bg-orange-500 text-white flex items-center justify-center shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+                    </div>
+                    <div>
+                        <span class="block text-[10px] font-bold text-orange-900 uppercase">Endereço de Entrega:</span>
+                        <span class="font-bold text-stone-900 text-sm leading-snug">Rua das Flores, 123, Bairro Esperança</span>
+                    </div>
+                </div>
+
+                <!-- Botões de Ação com Altura Mínima >= 46px (RNF04) -->
+                <div class="flex flex-col gap-2.5">
+                    <!-- Botão Secundário: Abrir no Mapa -->
+                    <a 
+                        href="https://www.google.com/maps/search/?api=1&query=Rua+das+Flores,+123,+Bairro+Esperanca" 
+                        target="_blank" 
+                        class="w-full bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-800 font-bold py-3.5 px-4 rounded-xl min-h-[46px] flex items-center justify-center gap-2 text-xs transition-all border border-stone-300 text-center"
+                    >
+                        <svg class="w-4 h-4 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        <span>Abrir no Mapa</span>
+                    </a>
+
+                    <!-- Botão Primário: Atualizar Status (Laranja MiauApoio) -->
+                    <button 
+                        type="button" 
+                        onclick="window.location.href='Confirmacao.html';" 
+                        class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3.5 px-4 rounded-xl min-h-[46px] flex items-center justify-center gap-2 text-xs shadow-md shadow-orange-500/25 transition-all cursor-pointer"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>Atualizar Status</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Família Souza (Demonstrando estado concluído) -->
+            <div class="bg-white/80 rounded-2xl border border-stone-200 p-3.5 opacity-75">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-sm font-bold text-stone-700 line-through">Família Souza</h3>
+                        <span class="text-[11px] text-emerald-800 font-bold">Entregue às 09:15 ✔</span>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-900 border border-emerald-300 text-[11px] font-extrabold px-2 py-0.5 rounded-md">
+                        Concluído
+                    </span>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Barra Inferior Acessível -->
+        <footer class="bg-white border-t border-stone-200 px-5 py-3 flex justify-between items-center text-xs text-stone-500 font-medium">
+            <span class="font-bold text-orange-600">ONG Conecta Vidas</span>
+            <span>RF02 / RF04</span>
+        </footer>
+
+    </div>
+
+</body>
+</html>
