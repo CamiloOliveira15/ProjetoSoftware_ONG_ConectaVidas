@@ -43,6 +43,13 @@
             color: #292524;
             -webkit-font-smoothing: antialiased;
         }
+        .anim-slide-in {
+            animation: slideIn 0.3s ease-out forwards;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="min-h-screen bg-[#f5f5f4] flex flex-col justify-between">
@@ -89,15 +96,15 @@
                 <p class="text-xs text-stone-600 mt-0.5">Vincule o voluntário ativo, a família assistida e os mantimentos disponíveis no estoque físico da sede.</p>
             </div>
 
-            <!-- Indicadores Rápidos do Estoque Físico -->
+            <!-- Indicadores Rápidos do Estoque Físico (Atualizados em tempo real) -->
             <div class="flex items-center gap-3 shrink-0">
                 <div class="bg-stone-50 border border-stone-200 px-3.5 py-2 rounded-xl text-center">
                     <span class="block text-[10px] font-bold text-stone-500 uppercase">Cestas Básicas</span>
-                    <span class="text-base font-black text-stone-900">15 <span class="text-xs font-semibold text-emerald-700">disp.</span></span>
+                    <span class="text-base font-black text-stone-900"><span id="saldo-cestas">15</span> <span class="text-xs font-semibold text-emerald-700">disp.</span></span>
                 </div>
                 <div class="bg-stone-50 border border-stone-200 px-3.5 py-2 rounded-xl text-center">
                     <span class="block text-[10px] font-bold text-stone-500 uppercase">Kits Higiene</span>
-                    <span class="text-base font-black text-stone-900">28 <span class="text-xs font-semibold text-emerald-700">disp.</span></span>
+                    <span class="text-base font-black text-stone-900"><span id="saldo-higiene">28</span> <span class="text-xs font-semibold text-emerald-700">disp.</span></span>
                 </div>
             </div>
         </div>
@@ -120,9 +127,9 @@
                                 1. Voluntário em Campo *
                             </label>
                             <select id="voluntario" class="w-full px-3.5 py-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-900 text-sm font-semibold focus:border-orange-500 focus:bg-white focus:outline-none">
-                                <option value="1" selected>João Voluntário (#101 - Ativo)</option>
-                                <option value="2">Mariana Santos (#102 - Ativo)</option>
-                                <option value="3">Carlos Eduardo (#103 - Em rota)</option>
+                                <option value="João Voluntário" selected>João Voluntário (#101 - Ativo)</option>
+                                <option value="Mariana Santos">Mariana Santos (#102 - Ativo)</option>
+                                <option value="Carlos Eduardo">Carlos Eduardo (#103 - Em rota)</option>
                             </select>
                         </div>
 
@@ -132,9 +139,9 @@
                                 2. Família Assistida *
                             </label>
                             <select id="familia" class="w-full px-3.5 py-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-900 text-sm font-semibold focus:border-orange-500 focus:bg-white focus:outline-none">
-                                <option value="1" selected>Família Silva (Rua das Flores, 123)</option>
-                                <option value="2">Família Costa (Av. Esperança, 45)</option>
-                                <option value="3">Família Pereira (Travessa da Paz, 12)</option>
+                                <option value="Família Silva" selected>Família Silva (Rua das Flores, 123)</option>
+                                <option value="Família Costa">Família Costa (Av. Esperança, 45)</option>
+                                <option value="Família Pereira">Família Pereira (Travessa da Paz, 12)</option>
                             </select>
                         </div>
                     </div>
@@ -149,25 +156,32 @@
                             <div class="bg-white p-3 rounded-xl border border-stone-200">
                                 <div class="flex justify-between items-center mb-1">
                                     <span class="text-xs font-bold text-stone-800">📦 Cestas Básicas</span>
-                                    <span class="text-[11px] text-stone-500 font-medium">Estoque: 15</span>
+                                    <span class="text-[11px] text-stone-500 font-medium">Saldo: <strong id="lbl-saldo-cestas">15</strong></span>
                                 </div>
                                 <div class="flex items-center gap-2 mt-1">
                                     <span class="text-xs text-stone-500 font-medium">Qtd:</span>
-                                    <input type="number" id="qtd-cestas" value="2" min="1" max="15" class="w-full px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-300 text-sm font-bold text-stone-900">
+                                    <input type="number" id="qtd-cestas" value="2" min="1" max="15" oninput="validarEstoque();" class="w-full px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-300 text-sm font-bold text-stone-900">
                                 </div>
                             </div>
 
                             <div class="bg-white p-3 rounded-xl border border-stone-200">
                                 <div class="flex justify-between items-center mb-1">
                                     <span class="text-xs font-bold text-stone-800">🧼 Kit Higiene Familiar</span>
-                                    <span class="text-[11px] text-stone-500 font-medium">Estoque: 28</span>
+                                    <span class="text-[11px] text-stone-500 font-medium">Saldo: <strong id="lbl-saldo-higiene">28</strong></span>
                                 </div>
                                 <div class="flex items-center gap-2 mt-1">
                                     <span class="text-xs text-stone-500 font-medium">Qtd:</span>
-                                    <input type="number" id="qtd-higiene" value="1" min="1" max="28" class="w-full px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-300 text-sm font-bold text-stone-900">
+                                    <input type="number" id="qtd-higiene" value="1" min="1" max="28" oninput="validarEstoque();" class="w-full px-3 py-1.5 rounded-lg bg-stone-50 border border-stone-300 text-sm font-bold text-stone-900">
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Alerta Dinâmico de Estoque Insuficiente (RF01) -->
+                        <div id="alerta-estoque-insuficiente" class="hidden bg-rose-50 border border-rose-300 text-rose-800 text-xs p-2.5 rounded-xl font-bold flex items-center gap-2">
+                            <span>⚠️</span>
+                            <span>Bloqueio RF01: Quantidade solicitada excede o saldo físico disponível!</span>
+                        </div>
+
                         <p class="text-[11px] text-stone-500 font-medium">
                             * Regra RF01: O sistema bloqueia requisições se a quantidade separada for maior que o saldo em estoque.
                         </p>
@@ -176,24 +190,25 @@
                     <!-- Botão de Confirmação (RF01) -->
                     <button 
                         type="submit" 
+                        id="btn-submeter-despacho"
                         class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-extrabold py-3.5 px-4 rounded-xl min-h-[48px] shadow-md shadow-orange-500/20 transition-all text-sm flex items-center justify-center gap-2 cursor-pointer mt-4"
                     >
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                        <span>Confirmar e Atribuir Rota ao Voluntário (RF01)</span>
+                        <span id="texto-btn-despacho">Confirmar e Atribuir Rota ao Voluntário (RF01)</span>
                     </button>
                 </form>
 
                 <!-- Feedback Visual de Sucesso (Toast/Aviso) -->
-                <div id="sucesso-atribuicao" class="hidden mt-4 bg-emerald-50 border-2 border-emerald-500 text-emerald-950 p-4 rounded-xl flex items-center justify-between">
+                <div id="sucesso-atribuicao" class="hidden mt-4 bg-emerald-50 border-2 border-emerald-500 text-emerald-950 p-4 rounded-xl flex items-center justify-between anim-slide-in">
                     <div class="flex items-center gap-2.5">
-                        <span class="text-base">✔️</span>
+                        <span class="text-lg">✔️</span>
                         <div>
-                            <span class="text-xs font-bold block">Entrega Atribuída com Sucesso!</span>
-                            <span class="text-[11px] text-emerald-800">A Rota #1042 já está disponível na tela do voluntário João.</span>
+                            <span class="text-xs font-bold block" id="msg-sucesso-titulo">Entrega Atribuída com Sucesso!</span>
+                            <span class="text-[11px] text-emerald-800" id="msg-sucesso-detalhe">A rota foi vinculada e o estoque físico foi atualizado.</span>
                         </div>
                     </div>
-                    <a href="Escala.html" class="text-xs bg-emerald-600 text-white font-bold px-3 py-1.5 rounded-lg hover:bg-emerald-700 transition-all">
-                        Ver na Escala →
+                    <a href="Escala.html" class="text-xs bg-emerald-600 text-white font-bold px-3 py-1.5 rounded-lg hover:bg-emerald-700 transition-all shrink-0">
+                        Ver no App →
                     </a>
                 </div>
             </div>
@@ -202,29 +217,36 @@
             <div class="bg-white rounded-2xl border border-stone-200 p-5 shadow-sm space-y-4">
                 <div class="flex justify-between items-center pb-2 border-b border-stone-100">
                     <h3 class="text-sm font-extrabold text-stone-900">Entregas do Mutirão</h3>
-                    <span class="text-[11px] bg-stone-100 text-stone-600 font-bold px-2 py-0.5 rounded">2 cadastradas</span>
+                    <span id="contador-entregas-badge" class="text-[11px] bg-stone-100 text-stone-600 font-bold px-2 py-0.5 rounded">2 cadastradas</span>
                 </div>
 
-                <!-- Item 1: Rota Ativa (Família Silva) -->
-                <div class="bg-stone-50 border border-stone-200 p-3.5 rounded-xl">
-                    <div class="flex justify-between items-start mb-1">
-                        <span class="text-xs font-bold text-stone-900">Família Silva</span>
-                        <span class="bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded">Pendente</span>
+                <div id="lista-despachos" class="space-y-3">
+                    <!-- Item 1: Rota Ativa (Família Silva) -->
+                    <div class="bg-stone-50 border border-stone-200 p-3.5 rounded-xl">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-xs font-bold text-stone-900">Família Silva</span>
+                            <span class="bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded">Pendente</span>
+                        </div>
+                        <p class="text-[11px] text-stone-600">Voluntário: <strong>João Voluntário</strong></p>
+                        <div class="flex gap-1.5 my-1">
+                            <span class="px-2 py-0.5 rounded bg-orange-100 text-orange-900 text-[10px] font-bold">2 Cestas</span>
+                            <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px] font-bold">1 Kit</span>
+                        </div>
+                        <span class="block text-[10px] text-stone-400 mt-1">Despachado às 09:30 • Rota #1042</span>
                     </div>
-                    <p class="text-[11px] text-stone-600">Voluntário: <strong>João Voluntário</strong></p>
-                    <p class="text-[11px] text-stone-600">Itens: 2 Cestas + 1 Higiene</p>
-                    <span class="block text-[10px] text-stone-400 mt-1">Despachado às 09:30 • Rota #1042</span>
-                </div>
 
-                <!-- Item 2: Rota Finalizada (Família Souza) -->
-                <div class="bg-stone-50/70 border border-stone-200 p-3.5 rounded-xl opacity-75">
-                    <div class="flex justify-between items-start mb-1">
-                        <span class="text-xs font-bold text-stone-700">Família Souza</span>
-                        <span class="bg-emerald-100 text-emerald-900 text-[10px] font-extrabold px-2 py-0.5 rounded">Concluído</span>
+                    <!-- Item 2: Rota Finalizada (Família Souza) -->
+                    <div class="bg-stone-50/70 border border-stone-200 p-3.5 rounded-xl opacity-75">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-xs font-bold text-stone-700">Família Souza</span>
+                            <span class="bg-emerald-100 text-emerald-900 text-[10px] font-extrabold px-2 py-0.5 rounded">Concluído</span>
+                        </div>
+                        <p class="text-[11px] text-stone-500">Voluntário: <strong>Carlos Eduardo</strong></p>
+                        <div class="my-1">
+                            <span class="px-2 py-0.5 rounded bg-stone-200 text-stone-700 text-[10px] font-bold">1 Cesta</span>
+                        </div>
+                        <span class="block text-[10px] text-emerald-800 font-semibold mt-1">Entregue às 09:15 ✔</span>
                     </div>
-                    <p class="text-[11px] text-stone-500">Voluntário: <strong>Carlos Eduardo</strong></p>
-                    <p class="text-[11px] text-stone-500">Itens: 1 Cesta Básica</p>
-                    <span class="block text-[10px] text-emerald-800 font-semibold mt-1">Entregue às 09:15 ✔</span>
                 </div>
             </div>
 
@@ -240,8 +262,73 @@
     </footer>
 
     <script>
+        let estoqueCestas = 15;
+        let estoqueHigiene = 28;
+        let totalEntregas = 2;
+
+        function validarEstoque() {
+            const inputCestas = parseInt(document.getElementById('qtd-cestas').value) || 0;
+            const inputHigiene = parseInt(document.getElementById('qtd-higiene').value) || 0;
+            const alerta = document.getElementById('alerta-estoque-insuficiente');
+            const btn = document.getElementById('btn-submeter-despacho');
+
+            if (inputCestas > estoqueCestas || inputHigiene > estoqueHigiene || inputCestas <= 0 || inputHigiene <= 0) {
+                alerta.classList.remove('hidden');
+                btn.disabled = true;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+                return false;
+            } else {
+                alerta.classList.add('hidden');
+                btn.disabled = false;
+                btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                return true;
+            }
+        }
+
         function simularDespacho() {
-            document.getElementById('sucesso-atribuicao').classList.remove('hidden');
+            if (!validarEstoque()) return;
+
+            const inputCestas = parseInt(document.getElementById('qtd-cestas').value);
+            const inputHigiene = parseInt(document.getElementById('qtd-higiene').value);
+            const voluntario = document.getElementById('voluntario').value;
+            const familia = document.getElementById('familia').value;
+
+            // Deduz do estoque físico
+            estoqueCestas -= inputCestas;
+            estoqueHigiene -= inputHigiene;
+            totalEntregas++;
+
+            // Atualiza indicadores na tela
+            document.getElementById('saldo-cestas').innerText = estoqueCestas;
+            document.getElementById('saldo-higiene').innerText = estoqueHigiene;
+            document.getElementById('lbl-saldo-cestas').innerText = estoqueCestas;
+            document.getElementById('lbl-saldo-higiene').innerText = estoqueHigiene;
+            document.getElementById('qtd-cestas').max = estoqueCestas;
+            document.getElementById('qtd-higiene').max = estoqueHigiene;
+            document.getElementById('contador-entregas-badge').innerText = `${totalEntregas} cadastradas`;
+
+            // Adiciona na lista
+            const lista = document.getElementById('lista-despachos');
+            const novoCard = document.createElement('div');
+            novoCard.className = 'bg-orange-50/70 border border-orange-300 p-3.5 rounded-xl anim-slide-in';
+            novoCard.innerHTML = `
+                <div class="flex justify-between items-start mb-1">
+                    <span class="text-xs font-bold text-stone-900">${familia}</span>
+                    <span class="bg-amber-100 text-amber-900 text-[10px] font-extrabold px-2 py-0.5 rounded">Pendente</span>
+                </div>
+                <p class="text-[11px] text-stone-600">Voluntário: <strong>${voluntario}</strong></p>
+                <div class="flex gap-1.5 my-1">
+                    <span class="px-2 py-0.5 rounded bg-orange-100 text-orange-900 text-[10px] font-bold">${inputCestas} Cestas</span>
+                    <span class="px-2 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px] font-bold">${inputHigiene} Kit</span>
+                </div>
+                <span class="block text-[10px] text-stone-500 mt-1">Despachado agora • Rota #${1042 + totalEntregas}</span>
+            `;
+            lista.prepend(novoCard);
+
+            // Alerta de sucesso
+            const aviso = document.getElementById('sucesso-atribuicao');
+            document.getElementById('msg-sucesso-detalhe').innerText = `Rota para ${familia} vinculada a ${voluntario}. Estoque restante: ${estoqueCestas} cestas.`;
+            aviso.classList.remove('hidden');
         }
     </script>
 
