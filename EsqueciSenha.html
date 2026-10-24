@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Acesso | ONG Conecta Vidas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração de Cores MiauApoio (Laranja + Stone) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#f97316', // orange-500
+                dark: '#ea580c',    // orange-600
+                light: '#fff7ed',   // orange-50
+              },
+              secondary: {
+                DEFAULT: '#292524', // stone-800
+                light: '#44403c',   // stone-700
+                muted: '#78716c',   // stone-500
+              },
+              light: '#f5f5f4',     // stone-100
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Fonte Inter (Padrão MiauApoio) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f5f5f4;
+            color: #292524;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen flex-col items-center justify-center p-3 sm:p-6 bg-[#f5f5f4]">
+
+    <!-- Moldura Mobile com Estilo de Card da MiauApoio -->
+    <main class="w-full max-w-[390px] bg-white rounded-3xl shadow-xl shadow-stone-300/50 border border-stone-200 overflow-hidden flex flex-col min-h-[660px]">
+        
+        <!-- Barra de Status Mobile -->
+        <div class="bg-stone-900 text-stone-200 text-[11px] px-6 py-2 flex justify-between items-center tracking-wider font-semibold">
+            <span>09:41</span>
+            <div class="flex items-center gap-2"><span>5G</span><span>100%</span></div>
+        </div>
+
+        <div class="p-7 flex-1 flex flex-col justify-between">
+            <div>
+                <!-- Identidade Visual -->
+                <div class="text-center mb-6 pt-2">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-orange-50 border border-orange-200/80 text-orange-500 mb-3.5 shadow-sm">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-extrabold text-stone-900 tracking-tight">Recuperar Acesso</h1>
+                    <p class="text-stone-600 text-xs mt-1 font-medium">Informe seu e-mail cadastrado para redefinir sua credencial.</p>
+                </div>
+
+                <!-- Formulário de Recuperação -->
+                <form onsubmit="event.preventDefault(); document.getElementById('feedback-recuperacao').classList.remove('hidden');" class="space-y-4">
+                    
+                    <div>
+                        <label class="block text-stone-800 text-sm font-bold mb-1.5" for="rec-email">
+                            E-mail do Voluntário
+                        </label>
+                        <input 
+                            class="w-full px-4 py-3 rounded-xl bg-stone-50 border border-stone-300 text-stone-900 text-sm font-semibold focus:border-orange-500 focus:bg-white focus:outline-none focus:ring-3 focus:ring-orange-100 transition-all" 
+                            type="email" 
+                            id="rec-email" 
+                            value="joao.voluntario@conectavidas.org" 
+                            required
+                        >
+                    </div>
+
+                    <!-- Botão de Ação -->
+                    <button 
+                        type="submit" 
+                        class="w-full bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white font-bold py-3.5 px-4 rounded-xl min-h-[46px] shadow-md shadow-orange-500/25 transition-all text-sm tracking-wide flex items-center justify-center gap-2 cursor-pointer mt-2"
+                    >
+                        <span>Enviar Link de Recuperação</span>
+                    </button>
+                </form>
+
+                <!-- Feedback Visual -->
+                <div id="feedback-recuperacao" class="hidden mt-4 bg-emerald-50 border-2 border-emerald-500 text-emerald-950 p-3.5 rounded-xl text-xs space-y-1">
+                    <span class="font-bold block">E-mail de verificação enviado! ✔</span>
+                    <p class="text-[11px] text-emerald-800">Instruções enviadas para <strong>joao.voluntario@conectavidas.org</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Botão Voltar para o Login -->
+            <div class="border-t border-stone-100 pt-4 text-center">
+                <a href="Login.html" class="text-xs font-bold text-orange-600 hover:text-orange-700 hover:underline min-h-[44px] inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    <span>Voltar para o Login</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
